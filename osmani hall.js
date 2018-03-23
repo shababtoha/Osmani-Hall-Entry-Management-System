@@ -19,6 +19,18 @@ app.get("/showforms",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table.html');
 });
 
+app.get("/in-outReg",function(req,res){
+	res.sendFile(process.cwd() + '/Views/table 2.html');
+});
+
+app.get("/mergeTable",function(req,res){
+	res.sendFile(process.cwd() + '/Views/mergeTable.html');
+});
+
+app.get("/firstPage",function(req,res){
+	res.sendFile(process.cwd() + '/Views/first page.html');
+});
+
 app.listen(3000,function(){
 	console.log('Port is listening');
 });
