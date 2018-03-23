@@ -1,0 +1,60 @@
+input{
+   // padding: 10px;
+    margin-top: 10px;
+    width: 250px;
+    background: #ccffcc;
+    border: 2px solid forestgreen;
+}
+
+.form-group{
+    width:300px;
+}
+h3,h4,h5,h6{
+		color: #006600;
+
+}
+
+input[type = "text"]{
+	/*display: block;*/
+	margin-bottom: 2px;
+	width: 100%;
+	//border: 2px solid steelblue;
+	border-width: 2px;
+	border-color:#006600;
+	background: #ccffcc;
+}
+
+input[type = "number"]{
+	/*display: block;*/
+	margin-bottom: 2px;
+	width: 100%;
+	border: 2px solid steelblue;
+	border-color:#006600;
+	background: #ccffcc;
+
+}
+
+input[type = "email"]{
+	/*display: block;*/
+	margin-bottom: 2px;
+	width: 100%;
+	border: 2px solid steelblue;
+	border-color:#006600;
+	background: #ccffcc;
+
+}
+
+
+input[type = "radio"]{
+	margin: 0 8px 25px 18px;
+}
+input[type = "radio"]:first-child{
+	margin-left :0;
+}
+input[type = "submit"]{
+	width:344px;
+	height:45px;
+	border:none;
+	background:#006600;
+	color: white;
+}

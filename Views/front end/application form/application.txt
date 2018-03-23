@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Application Form for "Osmani Hall"</title>
+</head>
+<body>
+
+	<h1>Application Form for "Osmani Hall"</h1>
+	<form>
+		<input type="text"	placeholder="Student's Name">
+		<input type="text"	placeholder="Student's Phone number">
+		<input type="text"	placeholder="Father's Name">
+		<input type="text"	placeholder="Mother's Name">
+		<input type="text"	placeholder="Present Address">
+		<input type="text"	placeholder="Permanent Address">
+		<input type="text"	placeholder="Course Name">
+		<input type="number"	placeholder="Student ID">
+		<input type="number"	placeholder="Registration Number">
+		<input type="number"	placeholder="Academic Year">
+		
+		<div>
+		<input type="radio"	id="male" name="gender"><label for="male">Male</label>
+		<input type="radio"	id="female" name="gender"><label for="female">Female</label>
+
+
+	</form>>
+</body>
+</html>

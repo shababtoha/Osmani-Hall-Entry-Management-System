@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Table</title>
+<link href="table.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class = "studentTable">
+		<p><br/></p>
+		<table class = "tableDesign">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Course</th>
+					<th>Student ID</th>
+					<th>Refistration Number</th>
+				</tr>
+			</thead>
+			<tbody id="mydata">
+				<tr>
+					<td>[name]</td>
+					<td>[course]</td>
+					<td>[id]</td>
+					<td>[reg]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src = "jquery.min.js"></script>
+	<script src = "jquery.miranda.min.js"></script>
+	<script>
+		var listdata = [
+		{"name":"mila","course":"cse","id":"21","reg":"21"}
+		];
+		$("#mydata").mirandajs(listdata);
+	</script>
+</body>
+</html>
+
+					
+					
+
+
+</body>
+</html>
