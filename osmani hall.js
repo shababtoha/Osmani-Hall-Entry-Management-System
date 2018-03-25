@@ -15,15 +15,15 @@ app.get("/login",function(req,res){
 	res.sendFile(process.cwd() + '/Views/login.html');
 });
 
-app.get("/showforms",function(req,res){
+app.get("/students",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table.html');
 });
 
-app.get("/in-outtable",function(req,res){
+app.get("/in-out",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
 });
 
-app.get("/residentstudenttable",function(req,res){
+app.get("/residentstudent",function(req,res){
 	res.sendFile(process.cwd() + '/Views/mergeTable.html');
 });
 
@@ -31,7 +31,7 @@ app.get("/",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
 });
 
-app.get("/guesttable",function(req,res){
+app.get("/guest",function(req,res){
 	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
 
