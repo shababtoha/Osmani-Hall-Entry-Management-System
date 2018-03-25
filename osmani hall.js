@@ -6,7 +6,7 @@ app.use(express.static('Views'));
 
 
 
-app.get('/',function(req,res) {
+app.get('/application',function(req,res) {
 	//console.log("hm");
 	res.sendFile(process.cwd() + '/Views/application.html');
 });
@@ -19,15 +19,15 @@ app.get("/showforms",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table.html');
 });
 
-app.get("/in-outReg",function(req,res){
+app.get("/in-outtable",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
 });
 
-app.get("/mergeTable",function(req,res){
+app.get("/residentstudenttable",function(req,res){
 	res.sendFile(process.cwd() + '/Views/mergeTable.html');
 });
 
-app.get("/firstpage",function(req,res){
+app.get("/",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
 });
 
