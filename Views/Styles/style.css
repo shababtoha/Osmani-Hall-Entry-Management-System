@@ -58,3 +58,26 @@ input[type = "submit"]{
 	background:#006600;
 	color: white;
 }
+.topnav {
+    background-color: #00004d;
+    overflow: hidden;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #00b3b3;
+    color: white;
+}

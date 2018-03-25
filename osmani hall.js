@@ -27,8 +27,12 @@ app.get("/mergeTable",function(req,res){
 	res.sendFile(process.cwd() + '/Views/mergeTable.html');
 });
 
-app.get("/firstPage",function(req,res){
+app.get("/firstpage",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
+});
+
+app.get("/guesttable",function(req,res){
+	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
 
 app.listen(3000,function(){

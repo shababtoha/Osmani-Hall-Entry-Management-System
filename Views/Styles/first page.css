@@ -18,9 +18,10 @@ body{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-	margin-top:1%
+	//margin-top:1%
 
 }
+
 
 /* Change the color of links on hover */
 .topnav a:hover {
@@ -42,7 +43,7 @@ body{
 
 /* When the screen is less than 600px wide, stack the links  vertically instead of horizontally */
 @media screen and (max-width: 600px) {
-    .topnav a, .topnav pic {
+    .topnav a, .topnav pic,.topnav hdr {
         float: none;
         display: block;
         text-align: left;
