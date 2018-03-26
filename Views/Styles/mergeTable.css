@@ -22,7 +22,7 @@
 	}
 	th,td{
 		padding: 10px;
-		text-align:center;
+		text-align:left;
 	}
 	th{
 		background:#00004d;
@@ -40,6 +40,7 @@
 }
 .topnav h1 {
     margin-top:20px;
+	margin-bottom:-10%
 	font-size:30px;
 	text-align:center;
 	color:white;
