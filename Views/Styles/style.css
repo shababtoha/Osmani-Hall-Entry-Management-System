@@ -57,6 +57,7 @@ input[type = "submit"]{
 	border:none;
 	background:#006600;
 	color: white;
+	margin-left:-7%;
 }
 .topnav {
     background-color: #00004d;
