@@ -25,10 +25,12 @@
     <title>Application Form for "Osmani Hall"</title>
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/Styles/toast.css">
     <script src="/Script/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/Styles/style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script type="text/javascript" src="/Script/application.js"></script>
+    <script type="text/javascript" src="/Script/toast.js"></script>
 </head>
 <body>
 
@@ -46,7 +48,7 @@
     </div>
 
     <div style="width: 600px; border: 3px solid forestgreen; ">
-        <form action="#">
+        <form action="/students" method="post">
 
             <h4 style="text-align: center; margin-top:-100px;	font-size:12px;">MIST</h4>
             <h3 style="font-size: 20px; margin-top: 25px ; text-align:center;">Application Form for "Osmani Hall"</h3>
@@ -56,49 +58,49 @@
             <div class="form-group row" >
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Student's Name" class="form-control" id="stdname" required>
+                    <input type="text" placeholder="Student's Name" class="form-control" name="stdname" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Student's Phone number" class="form-control" id="stdphn" required>
+                    <input type="number" placeholder="Student's Phone number" class="form-control" name="stdphn" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Father's Name" class="form-control" id="fatname" required>
+                    <input type="text" placeholder="Father's Name" class="form-control" name="fatname" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="email" placeholder="Father's Email" class="form-control"  id="fatmail">
+                    <input type="email" placeholder="Father's Email" class="form-control"  name="fatmail">
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Father's Phone number" class="form-control" id="fatphn" required>
+                    <input type="number" placeholder="Father's Phone number" class="form-control" name="fatphn" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Mother's Name" class="form-control" id="motname" required>
+                    <input type="text" placeholder="Mother's Name" class="form-control" name="motname" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="email" placeholder="Mother's Email" class="form-control"  id="motmail">
+                    <input type="email" placeholder="Mother's Email" class="form-control"  name="motmail">
                 </div>
             </div>
 
@@ -106,7 +108,7 @@
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Mother's Phone number" class="form-control" id="motphn" required>
+                    <input type="number" placeholder="Mother's Phone number" class="form-control" name="motphn" required>
                 </div>
             </div>
 
@@ -116,49 +118,49 @@
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Present Address" class="form-control" id="prsntaddr" required>
+                    <input type="text" placeholder="Present Address" class="form-control" name="prsntaddr" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Permanent Address" class="form-control" id="pmntaddr" required>
+                    <input type="text" placeholder="Permanent Address" class="form-control" name="pmntaddr" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Course Name" class="form-control" id="crse" required>
+                    <input type="text" placeholder="Course Name" class="form-control" name="crse" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Student ID" class="form-control" id="stdid" required>
+                    <input type="number" placeholder="Student ID" class="form-control" name="stdid" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Registration Number" class="form-control" id="regno" required>
+                    <input type="number" placeholder="Registration Number" class="form-control" name="regno" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
                 <div class="col-sm-10"style="margin-left:10%">
-                    <input type="number" placeholder="Academic Year" class="form-control" id="acyear" required>
+                    <input type="number" placeholder="Academic Year" class="form-control" name="acyear" required>
                 </div>
             </div>
 			
 			<div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Level" class="form-control" id="level" required>
+                    <input type="number" placeholder="Level" class="form-control" name="level" required>
                 </div>
             </div>
 
@@ -169,13 +171,13 @@
                 <div class="col-sm-10">
                     <div class="form-check">
                         <label class="form-check-label" style="margin-left:10%">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"  >
+                            <input class="form-check-input" type="radio" name="gender" " value="Male"  >
                             Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label" style="margin-left:10%">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" >
+                            <input class="form-check-input" type="radio" name="gender"  value="Female" >
                             Female
                         </label>
                     </div>
@@ -183,7 +185,7 @@
                 </div>
             </fieldset>
 			
-		<select class="matha" style="margin-left:10%" >
+		<select class="matha" style="margin-left:10%" name="hall">
 		<option value="Osmani Hall">Osmani Hall</option> <!-- -_- eivabe -->
 		<option value="Extension A">Extension A</option>
 		<option value="Extension B">Extension B</option>
@@ -200,31 +202,31 @@
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Local Guardian's Name" class="form-control"  id="gdname" required>
+                    <input type="text" placeholder="Local Guardian's Name" class="form-control"  name="gdname" required>
                 </div>
             </div>
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="email" placeholder="Local Guardian's Email" class="form-control"  id="gdmail" required>
+                    <input type="email" placeholder="Local Guardian's Email" class="form-control"  name="gdmail" >
                 </div>
             </div>
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="number" placeholder="Local Guardian's Phone number" class="form-control"  id="gdphn" required>
+                    <input type="number" placeholder="Local Guardian's Phone number" class="form-control"  name="gdphn" required>
                 </div>
             </div>
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="text" placeholder="Local Guardian's Address" class="form-control"  id="gdaddr" required>
+                    <input type="text" placeholder="Local Guardian's Address" class="form-control"  name="gdaddr" required>
                 </div>
             </div>
             <div class="form-group row">
 
                 <div class="col-sm-10" style="margin-left:10%">
-                    <input type="submit" name="Submit" class="btn btn-success" style="width: 220px;" id="sbmt">
+                    <input type="submit"  class="btn btn-success" style="width: 220px;" >
                 </div>
             </div>
 
