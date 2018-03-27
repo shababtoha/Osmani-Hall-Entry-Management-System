@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var ObjectId = require('mongodb').ObjectID;
 
 var mongo = require('mongodb').MongoClient;
-const  mongourl =  'mongodb://osmani:osmani@ds123929.mlab.com:23929/osmanihall';
+var  mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,7 +23,7 @@ app.post('/students',function(req,res){
 
 	//console.log(req.body);
 	if(!req.body){
-		//console.log("hmm");
+		console.log("hmm");
 		res.redirect('/application?insert=false');
 		return;
 	}
@@ -47,19 +47,25 @@ app.post('/students',function(req,res){
   				gdname: '',
   				gdmail: '',
   				gdphn: '',
-  				gdaddr: '' }
+  				gdaddr: '',
+  				room : '',
+  				 }
 
   	for(var key in obj){
   		if(!req.body.hasOwnProperty(key)){
+  			console.log("key nai");
   			res.redirect('/application?insert=false');
   			return;
   		}
   	}
   	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(gdphn))){
+  		console.log("phone");
   		res.send("ERROR");
+  		return;
   	}
   	mongo.connect(mongourl,function(err,db){
   		var collection  = db.collection('students');
+  		console.log(collection);
   		collection.insert( req.body, function(err,data){
   			if(err){
   				res.redirect('/application?insert=false');
@@ -78,7 +84,13 @@ app.post('/students',function(req,res){
 		//room no kora baki ase
 app.post("/getstudentinfo",function(req,res){
 	mongo.connect(mongourl,function(err,db){
+		if(err){
+			console.log(err);
+			return;
+		}
+
 		var collection = db.collection("students");
+
 		collection.find({}).toArray(function(err,documents){
 			if(err){
 				res.send("err");
@@ -90,7 +102,8 @@ app.post("/getstudentinfo",function(req,res){
 				"id" : documents[i]._id,
 				"stdid" : documents[i].stdid,
 				"gender" : documents[i].gender,
-				"contact" : documents[i].stdphn
+				"contact" : documents[i].stdphn,
+				"room" : documents[i].room
 				 });
 			}
 			res.send(obj);

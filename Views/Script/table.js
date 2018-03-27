@@ -29,8 +29,9 @@ function make_row(obj){
 			<td>'+obj.course+'</td>\
 			<td>'+obj.level+'</td>\
 			<td>'+obj.stdid+'</td>\
-			<td>ROOM DES NAI -_-  </td>\
+			<td>'+obj.room+' </td>\
 			<td>'+obj.gender+'</td>\
 			<td>'+obj.contact+'</td>\
+			<td><button type="button" class="btn btn-primary" style="width:100% ; background:#00004d ; color:white;" id='+obj.id+'>Edit</button></td>\
 			</tr>';
 }
