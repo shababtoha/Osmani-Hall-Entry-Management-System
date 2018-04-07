@@ -1,20 +1,24 @@
 
 
 .tableDesign,th,td{
-		border : 2px solid steelblue;
+		
 		background: #e6f9ff;
 		//margin-left:300px;
 		border-collapse:collapse;
 		opacity:0.95;
 		margin:auto;
+		//border : 2px solid steelblue;
 		
 	}
+	
 	.tableDesign{
+		border : 2px solid steelblue;
 		width:100%;
 		margin:-1%;
 		
 		
 	}
+	
 	.table-responsive{
 		overflow: hidden;
     overflow-x: auto;
@@ -28,6 +32,7 @@
 		background:#00004d;
 		color:white;
 		font-size:20px;
+
 
 	}
 	h1{

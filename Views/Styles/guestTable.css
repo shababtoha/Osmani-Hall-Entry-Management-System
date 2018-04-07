@@ -8,7 +8,7 @@ body{
 	}
 	
 	.tableDesign,th,td{
-		border : 2px solid steelblue;
+		
 		background: #e6f9ff;
 		//margin-left:300px;
 		border-collapse:collapse;
@@ -87,14 +87,13 @@ body{
         float: none;
         display: block;
         text-align: left;
-        
+        width:100%;
         margin: 0;
         padding: 14px;
     }
     
     .topnav input[type=text] {
         border: 1px solid #ccc;
-        margin-bottom: 2%;
-        margin-left: 2%;
+        
     }
 }
