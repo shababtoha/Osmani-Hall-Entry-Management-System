@@ -1,5 +1,8 @@
 var express= require('express');
 var app = express();
+var loginauth = require("./auth");
+
+
 var bodyParser = require('body-parser');
 var ObjectId = require('mongodb').ObjectID;
 
@@ -112,6 +115,13 @@ app.post("/getstudentinfo",function(req,res){
 });
 
 //fetching dara ends here
+app.post('/login',function(req,res){
+	if(!req.body.uname || !req.body.psw){
+		res.send("invalid");
+		return;
+	}
+	loginauth.checkLogin(req.body.uname,req.body.psw,res);
+});
 
 
 
@@ -144,6 +154,10 @@ app.get("/guest",function(req,res){
 	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
 
-app.listen(3000,function(){
+app.get("/dsw",function(req,res){
+	res.send("DSW er page banano hoynai :3");
+});
+
+app.listen(8080,function(){
 	console.log('Port is listening');
 });

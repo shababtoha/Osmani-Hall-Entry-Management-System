@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
-    <script src="Styels/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Styles/login.css">
+  <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+  <script src="Script/login.js"></script>
+  <link rel="stylesheet" href="Styles/login.css">
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
 
 
 <div class="container" style="width:400px">
-  <form action="#">
+  <div class="FORM" >
   <div class="imgcontainer">
     <img src="logo.png" alt="Avatar" class="avatar">
   </div>
@@ -28,9 +28,9 @@
     <label for="psw" style="color:forestgreen"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="pw" required>
 
-    <button type="submit" id="login">Login</button>
+    <button  id="login" onclick="login()">Login</button>
     <label>
-      <input type="checkbox" checked="checked" name="remember" id= "rmbr"> Remember me
+    <input type="checkbox" checked="checked" name="remember" id= "rmbr"> Remember me
     </label>
   </div>
 
@@ -38,7 +38,7 @@
     <button type="button" class="cancelbtn" id="cnclbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
-</form>
+</div>
 </div>
 </body>
 </html>
