@@ -39,11 +39,12 @@
     overflow: hidden;
 }
 .topnav h1 {
-    margin-top:20px;
-	margin-bottom:-10%
+	margin-top:20px;
 	font-size:30px;
 	text-align:center;
 	color:white;
+    
+	
 }
 
 .topnav a {
@@ -53,6 +54,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+
 }
 
 .topnav a:hover {

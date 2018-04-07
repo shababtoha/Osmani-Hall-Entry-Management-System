@@ -153,6 +153,9 @@ app.get("/",function(req,res){
 app.get("/guest",function(req,res){
 	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
+app.get("/pwreset",function(req,res){
+	res.sendFile(process.cwd() + '/Views/passwordreset.html');
+});
 
 app.get("/dsw",function(req,res){
 	res.send("DSW er page banano hoynai :3");
