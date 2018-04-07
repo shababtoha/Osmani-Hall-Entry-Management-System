@@ -1,17 +1,19 @@
 var express= require('express');
 var app = express();
 var loginauth = require("./auth");
-
-
 var bodyParser = require('body-parser');
 var ObjectId = require('mongodb').ObjectID;
-
 var mongo = require('mongodb').MongoClient;
 var  mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('Views'));
+app.use(cookieParser());
+app.use(session({secret: "Hey! Wanna Know my Secret Identity?",saveUninitialized : true,resave : false}));
 
 function checkValidPhone(x)
 {
@@ -26,7 +28,7 @@ app.post('/students',function(req,res){
 
 	//console.log(req.body);
 	if(!req.body){
-		console.log("hmm");
+		//console.log("hmm");
 		res.redirect('/application?insert=false');
 		return;
 	}
@@ -116,11 +118,18 @@ app.post("/getstudentinfo",function(req,res){
 
 //fetching dara ends here
 app.post('/login',function(req,res){
+	
+	console.log(req.body);
+
 	if(!req.body.uname || !req.body.psw){
 		res.send("invalid");
 		return;
 	}
-	loginauth.checkLogin(req.body.uname,req.body.psw,res);
+	if(req.session.user){
+		res.send(req.session.user);
+		return;
+	}
+	loginauth.checkLogin(req.body.uname,req.body.psw,res,req);
 });
 
 
@@ -131,9 +140,12 @@ app.get('/application',function(req,res) {
 });
 
 app.get("/login",function(req,res){
+	if(req.session.user){
+		res.redirect("/"+req.session.user);
+		return;
+	}
 	res.sendFile(process.cwd() + '/Views/login.html');
 });
-
 app.get("/students",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table.html');
 });
@@ -141,15 +153,12 @@ app.get("/students",function(req,res){
 app.get("/in-out",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
 });
-
 app.get("/residentstudent",function(req,res){
 	res.sendFile(process.cwd() + '/Views/mergeTable.html');
 });
-
 app.get("/",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
 });
-
 app.get("/guest",function(req,res){
 	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
@@ -158,7 +167,9 @@ app.get("/pwreset",function(req,res){
 });
 
 app.get("/dsw",function(req,res){
-	res.send("DSW er page banano hoynai :3");
+	if(req.session.user==="dsw")
+		res.send("DSW er page banano hoynai :3");
+	else res.redirect("/login");
 });
 
 app.listen(8080,function(){
