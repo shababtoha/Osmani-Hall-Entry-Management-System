@@ -62,14 +62,14 @@
 
 }
 
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+.topnav a:hover , .topnav a.active:hover {
+    background-color: #00b3b3;
+    color: white;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #00b3b3;
+    /*background-color: #00b3b3;*/
     color: white;
     width: auto;
     margin-left: 1%;
