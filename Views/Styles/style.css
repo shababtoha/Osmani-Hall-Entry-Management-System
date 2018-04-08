@@ -13,6 +13,11 @@ h3,h4,h5,h6{
 		color: #006600;
 
 }
+input[type='file'] {
+  color: transparent;
+   
+   position: absolute;
+}
 
 input[type = "text"]{
 	/*display: block;*/
