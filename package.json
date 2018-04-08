@@ -18,7 +18,9 @@
   "homepage": "https://github.com/sumaiyamila/osmanihall#readme",
   "dependencies": {
     "cookie-parser": "^1.4.3",
+    "express-fileupload": "^0.4.0",
     "express-session": "^1.15.6",
-    "jquery-toast-plugin": "^1.3.2"
+    "jquery-toast-plugin": "^1.3.2",
+    "multer": "^1.3.0"
   }
 }

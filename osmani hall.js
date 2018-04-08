@@ -7,6 +7,9 @@ var mongo = require('mongodb').MongoClient;
 var  mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var multer  = require('multer')
+var upload = multer({ dest : 'uploads/' })
+const fileUpload = require('express-fileupload');
 
 
 
@@ -14,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('Views'));
 app.use(cookieParser());
 app.use(session({secret: "Hey! Wanna Know my Secret Identity?",saveUninitialized : true,resave : false}));
+app.use(fileUpload());
 
 function checkValidPhone(x)
 {
@@ -23,15 +27,32 @@ function checkValidPhone(x)
 
 
 /// save student data to students collection
+// app.post('/students',function (req, res) {
+//       // if(req.file==undefined) res.json(  { size : 0 } );
+//       // else{
+//       // 	console.log(done);
+//       // }
+//       console.log(req.files.profile_photo);
+//       console.log(req.body);
+// });
 
 app.post('/students',function(req,res){
 
 	//console.log(req.body);
+	if(!req.files){
+		res.redirect('/application?insert=false');
+		return;
+	}
+
 	if(!req.body){
 		//console.log("hmm");
 		res.redirect('/application?insert=false');
 		return;
 	}
+	//console.log(req.files); mimetype  : image/png
+	
+
+
 	var obj = { stdname: '',
   				stdphn: '',
   				fatname: '',
@@ -63,14 +84,23 @@ app.post('/students',function(req,res){
   			return;
   		}
   	}
-  	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(gdphn))){
+
+
+	
+  	var myfile = req.files.profile_photo;
+  	var type = req.files.profile_photo.mimetype.split("/")[1];
+	myfile.mv(process.cwd()+'/uploads/'+req.body.stdid+'.'+type, function(err) {
+    	if(err) console.log("upload e error");
+  	});
+
+
+  	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.gdphn))){
   		console.log("phone");
   		res.send("ERROR");
   		return;
   	}
   	mongo.connect(mongourl,function(err,db){
   		var collection  = db.collection('students');
-  		console.log(collection);
   		collection.insert( req.body, function(err,data){
   			if(err){
   				res.redirect('/application?insert=false');
