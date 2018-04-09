@@ -79,7 +79,7 @@ app.post('/students',function(req,res){
 
   	for(var key in obj){
   		if(!req.body.hasOwnProperty(key)){
-  			console.log("key nai");
+  			console.log("key nai"+key);
   			res.redirect('/application?insert=false');
   			return;
   		}
