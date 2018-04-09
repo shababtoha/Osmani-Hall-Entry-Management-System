@@ -19,6 +19,7 @@ input[type='file'] {
    position: absolute;
 }
 
+
 input[type = "text"]{
 	/*display: block;*/
 	margin-bottom: 2px;

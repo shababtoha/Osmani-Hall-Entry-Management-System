@@ -3,8 +3,8 @@
 <head>
   <link rel="stylesheet" href="/Styles/bootstrap.min.css">
   <script src="Script/login.js"></script>
-  <link rel="stylesheet" href="Styles/passwordreset.css">
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="Styles/resetcode.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 </div>
 
 
-<div class="container" style="width:350px">
+<div class="container" style="width:400px">
   <div class="FORM" >
     <h1 style="font-size: 100% ; font-weight: bold; margin-left: 35% ; margin-top: 5%">Reset Password</h1>
 
@@ -24,11 +24,13 @@
     </div>
 
   <div class="container">
-    <label for="uname" style="color:forestgreen;  "><b>Please confirm your email:</b></label>
-    <input type="text"   placeholder="Email ID" name="uname" id="usrname" required>
+    
+    <input type="text"   placeholder="Verification Code" name="code" id="code" required>
+    <input type="text"   placeholder="New Password" name="newpw" id="newpw" required>
+    <input type="text"   placeholder="Confirm Password" name="confirmpw" id="confirmpw" required>
 
 
-    <button  id="reset" href="/resetcode" onclick="reset()">Confirm</button>  
+    <button  id="reset" onclick="reset()">Confirm</button>  
   </div>
 
             <h2 style="font-size: 100% ;  margin-left: 35% ; margin-bottom: 5%; margin-top: 1%">Back to <a href="/login">Login</a></h2>

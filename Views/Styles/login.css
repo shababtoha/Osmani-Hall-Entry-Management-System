@@ -1,7 +1,7 @@
 .FORM {
     border: 3px solid forestgreen;
 	background:white;
-	margin-top:100px;
+	margin-top:70px;
 }
 
 body{
@@ -23,7 +23,7 @@ input[type=text], input[type=password] {
 button {
     background-color: forestgreen;
     color: white;
-	border-radius:50px;
+	//border-radius:50px;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -85,6 +85,7 @@ span.psw {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    margin-left: .2%;
 }
 
 .topnav a:hover {
@@ -97,3 +98,4 @@ span.psw {
     background-color: #00b3b3;
     color: white;
 }
+
