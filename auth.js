@@ -20,7 +20,7 @@ module.exports = {
   		var collection = db.collection('auth');
   		collection.find({ email : id , pass : val+"" }).toArray(function(err,documents){
   			if(err) console.log(err);
-  			console.log(documents);
+  		//	console.log(documents);
   			if(documents.length == 1){
   				 req.session.user = documents[0].type;
   				res.send(req.session.user);
@@ -35,6 +35,7 @@ module.exports = {
   	return hash(val);
   }
 };
+
 function hash(val) {
     val = val.split("");
     var hash_val = 0;

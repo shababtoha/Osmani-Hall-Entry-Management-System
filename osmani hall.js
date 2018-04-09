@@ -4,12 +4,14 @@ var loginauth = require("./auth");
 var bodyParser = require('body-parser');
 var ObjectId = require('mongodb').ObjectID;
 var mongo = require('mongodb').MongoClient;
-var  mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
+var mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var multer  = require('multer')
 var upload = multer({ dest : 'uploads/' })
 const fileUpload = require('express-fileupload');
+
+var MAILSENDER = require("./sendMail");
 
 
 
@@ -37,22 +39,17 @@ function checkValidPhone(x)
 // });
 
 app.post('/students',function(req,res){
-
 	//console.log(req.body);
 	if(!req.files){
 		res.redirect('/application?insert=false');
 		return;
 	}
-
 	if(!req.body){
 		//console.log("hmm");
 		res.redirect('/application?insert=false');
 		return;
 	}
 	//console.log(req.files); mimetype  : image/png
-	
-
-
 	var obj = { stdname: '',
   				stdphn: '',
   				fatname: '',
@@ -162,6 +159,27 @@ app.post('/login',function(req,res){
 	loginauth.checkLogin(req.body.uname,req.body.psw,res,req);
 });
 
+app.post("/resetpass",function(req,res){
+
+	if(!req.body.email){
+		//res.send("mara khao");
+		return;
+	}
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection('auth');
+		collection.find( { "email" : req.body.email } ).toArray(function(err,documents){
+			if(documents.length !=1){
+				res.send("notfound");
+				return;
+			}
+			MAILSENDER.sendM(req.body.email , documents[0].hash ,res);
+			//console.log( loginauth.getHash(documents[0].email) );
+		});
+
+	});
+
+
+});
 
 
 
@@ -192,6 +210,11 @@ app.get("/",function(req,res){
 app.get("/guest",function(req,res){
 	res.sendFile(process.cwd() + '/Views/guestTable.html');
 });
+
+app.get("/resetcode",function(req,res){
+	res.sendFile(process.cwd() + '/Views/resetcode.html');
+});
+
 app.get("/pwreset",function(req,res){
 	res.sendFile(process.cwd() + '/Views/passwordreset.html');
 });
@@ -201,6 +224,10 @@ app.get("/dsw",function(req,res){
 		res.send("DSW er page banano hoynai :3");
 	else res.redirect("/login");
 });
+
+
+
+
 
 app.listen(8080,function(){
 	console.log('Port is listening');
