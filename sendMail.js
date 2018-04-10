@@ -12,11 +12,11 @@ module.exports = {
 
 function SEND(email,hash,res,sub,txt) {
 	var mailOptions = {
-    	from: 'shabab.toha@gmail.com',
-    	to: 'stoha71@gmail.com',
-    	subject: 'sample subject',
+    	from: 'andro456project@gmail.com',
+    	to: email,
+    	subject: sub,
     	text: 'sample text',
-    	html: '<b>sample html</b>',
+    	html: txt,
 	};
 
 
@@ -24,8 +24,8 @@ function SEND(email,hash,res,sub,txt) {
   		service: 'gmail',
   		host: 'smtp.gmail.com',
   		auth: {
-    		user: 'shabab.toha@gmail.com',
-    		pass: ''
+    		user: 'andro456project@gmail.com',
+    		pass: 'androidProject1234'
   		}
 	}));
   

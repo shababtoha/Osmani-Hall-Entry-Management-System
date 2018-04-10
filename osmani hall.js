@@ -172,7 +172,7 @@ app.post("/resetpass",function(req,res){
 				res.send("notfound");
 				return;
 			}
-			MAILSENDER.sendM(req.body.email , documents[0].hash ,res);
+			MAILSENDER.sendM('stoha71@gmail.com' , documents[0].hash ,res,"Password Reset", "testiing");
 			//console.log( loginauth.getHash(documents[0].email) );
 		});
 
