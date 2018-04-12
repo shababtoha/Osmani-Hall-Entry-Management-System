@@ -173,7 +173,7 @@ app.post("/resetpass",function(req,res){
 				return;
 			}
 
-			var link ="Please Use this link <br> http://localhost:8080/resetcode?code="+ Date.now()+"&&"+documents[0].hash;
+			var link ="Please Use this link <br> http://localhost:8080/resetcode?code="+ Date.now()+"+"+documents[0].hash;
 			//console.log(link);
 			MAILSENDER.sendM(req.body.email,res,"Password Reset",link);
 		});
@@ -214,8 +214,40 @@ app.get("/guest",function(req,res){
 });
 
 app.get("/resetcode",function(req,res){
-	//res.sendFile(process.cwd() + '/Views/resetcode.html');
-	res.send("Link a Click korte boli nai bitch");
+	console.log(req.query.code);
+	if(!req.query){
+		res.send("Not a Valid Url");
+		return;
+	}
+	if(!req.query.code){
+		res.send("Not a Valid Url+s");
+		return;
+		
+	}
+	var code = req.query.code.split(" ");
+	if(code.length!==2){
+		res.send("Not a Valid Url+s");
+		return;
+		
+	}
+	if(Date.now < code[0] ){
+		res.send("Not a Valid Url+s");
+		return;
+	}
+	if(Date.now()/100 - Number(code[0])/100 > 86400){
+		res.send("Not a Valid Url+s");
+		return;
+	}
+
+
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection('auth');
+		collection.find({ "hash" : code[1]+""}).toArray(function(err,documents){
+			if(documents.length==1){
+				res.sendFile(process.cwd()+'/Views/resetcode.html');
+			};
+		});
+	});
 });
 
 app.get("/pwreset",function(req,res){
