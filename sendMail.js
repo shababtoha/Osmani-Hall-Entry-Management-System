@@ -4,18 +4,18 @@ var nodemailer = require ('nodemailer')
 var smtpTransport = require('nodemailer-smtp-transport');
 
 module.exports = {
-	sendM : function (email,hash,res,sub,text){
-		SEND(email,hash,res,sub,text);
+	sendM : function (email,res,sub,text){
+		SEND(email,res,sub,text);
 	},
 
 };
 
-function SEND(email,hash,res,sub,txt) {
+function SEND(email,res,sub,txt) {
 	var mailOptions = {
     	from: 'andro456project@gmail.com',
     	to: email,
     	subject: sub,
-    	text: 'sample text',
+    	text: txt,
     	html: txt,
 	};
 
@@ -30,11 +30,12 @@ function SEND(email,hash,res,sub,txt) {
 	}));
   
   
-  	transporter.sendMail(mailOptions, (err, res) => {
+  	transporter.sendMail(mailOptions, (err, ress) => {
     	if (err) {
-        	return console.log(err);
+        	res.send(err);
     	} else {
-        	console.log(JSON.stringify(res));
+        	console.log(JSON.stringify(ress));
+    		res.send("Mail Sent");
     	}
 	});
 }

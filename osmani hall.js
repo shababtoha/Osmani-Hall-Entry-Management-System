@@ -172,8 +172,10 @@ app.post("/resetpass",function(req,res){
 				res.send("notfound");
 				return;
 			}
-			MAILSENDER.sendM('stoha71@gmail.com' , documents[0].hash ,res,"Password Reset", "testiing");
-			//console.log( loginauth.getHash(documents[0].email) );
+
+			var link ="Please Use this link <br> http://localhost:8080/resetcode?code="+ Date.now()+"&&"+documents[0].hash;
+			//console.log(link);
+			MAILSENDER.sendM(req.body.email,res,"Password Reset",link);
 		});
 
 	});
@@ -212,7 +214,8 @@ app.get("/guest",function(req,res){
 });
 
 app.get("/resetcode",function(req,res){
-	res.sendFile(process.cwd() + '/Views/resetcode.html');
+	//res.sendFile(process.cwd() + '/Views/resetcode.html');
+	res.send("Link a Click korte boli nai bitch");
 });
 
 app.get("/pwreset",function(req,res){

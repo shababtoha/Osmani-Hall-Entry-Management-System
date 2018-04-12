@@ -1,3 +1,5 @@
+
+var flag = true;
 function reset(){
 	var email  =  $("#usrname").val();
 	if(!email) return;
@@ -6,6 +8,9 @@ function reset(){
 		alert("Please Enter A valid Email Address");
 		return;
 	};
+	if(flag!==true) return;
+	flag = false;
+	$("#spin").addClass("fa fa-spinner fa-spin");
 	submit(email);
 }
 function checkforenter(val){
@@ -28,7 +33,15 @@ function submit(email){
 		url  : '/resetpass',
 		data : { "email" : email },
 		success : function(data){
-			console.log(data);
+			flag = true;
+			$("#spin").removeClass("fa fa-spinner fa-spin");
+			if(data==="Mail Sent"){
+				alert("A Link Has Been Sent to Your Email");
+			}
+			else{
+				alert("An error Occured. Try Again");
+			}
+
 		}
 	})
 }
