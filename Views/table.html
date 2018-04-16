@@ -3,55 +3,59 @@
 <head>
 <meta charset="utf-8">
 <title>Table</title>
-<link href="/Styles/table.css" rel="stylesheet"/>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-<style>
-	body{
-		font-family: Arial;
-		font-size: 20px;
-		background-image: url(back2.jpg);
-		background-size: cover;
-		background-attachment:fixed;
 
-	}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/Script/bootstrap.min.js"></script>
 	
-</style>
-
- <link rel="stylesheet" href="/Styles/bootstrap.min.css">
- <script src="/Script/table.js"></script>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="/Script/table.js"></script>
+	<link href="/Styles/table.css" rel="stylesheet"/>
 </head>
-<body>
 
-<div class="topnav">
 
+
+<body background="new6.jpg">
 
 	
-	<h1>Osmani Hall Student Database</h1>
-	<a href="#"  class="lgbtn" style="  color:white" id="logout" > Log out
+	
+	
+	<div class="topnav" id="top-menu">
+  <!-- <img src="logo.png" class= "pic" alt=""  style="margin-top: 1% ; margin-left:5%; " height="60" width="63" > -->
+    <ul>
+
+       <li><a  href="/residentstudent" id="entry" style="text-decoration: none !important; ">Home</a></li>
+       <li><a href="/" id="login" style="text-decoration: none;">Add Student</a></li>
+      
+       <li>      <a href="#"  class="lgbtn" style="  color:white"  id="logout" > Log out
           <span class="glyphicon glyphicon-off"></span>
-        </a>
+        </a>    </li>
+		
+	  
+      
+     </ul>
+
+</div>
+
+
+
 	
-
-
-	<a href="/"  value="Home"  id="home" style="color:white">Home</a>
-   <a href="/application" value="Add Student" id="add" style="color:white">Add Student</a>
-   
   
 
    
-</div>
+
 
 <div id="tableContainer" style="margin-left: 7%; margin-right: 3%; margin-top: 75px; " >
  
 
 		<table class = "tableDesign">
+			
+			
 			<thead>
+			
 				<tr>
 				
 					<th id="nameleft">Name</th>
@@ -59,137 +63,149 @@
 					<th>Level</th>
 					<th>Student ID</th>
 					<th>Room No</th>
-					<th>Hall</th>
-					<th>Gender</th>
+				    <th>Gender</th>
 					<th>Contact No</th>
-						<th>Other</th>
+                    <th>Edit Info</th>					
+					
 				</tr>
 			</thead>
 			<tbody id="mydata">
 				 <tr>
-					<td>mila</td>
+					<td class="left">mila</td>
 					<td>cse</td>
 					<td>4</td>
 					<td>21</td>
 					<td>601</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:75% ; background:#00004d ; color:white;" id="edt">Edit</button></td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 
 				</tr>
-				<!--
-				<tr>
-					<td>keya</td>
+				
+				<!-- <tr>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>keya</td>
+					<td class="left">keya</td>
 					<td>eee</td>
 					<td>4</td>
 					<td>51</td>
 					<td>501</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 				</tr>
 				<tr>
-					<td>mila</td>
+					<td class="left">mila</td>
 					<td>cse</td>
 					<td>4</td>
 					<td>21</td>
 					<td>601</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 
 				</tr>
 				<tr>
-					<td>mila</td>
+					<td class="left">mila</td>
 					<td>cse</td>
 					<td>4</td>
 					<td>21</td>
 					<td>601</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 
 				</tr>
 				<tr>
-					<td>mila</td>
+					<td class="left">mila</td>
 					<td>cse</td>
 					<td>4</td>
 					<td>21</td>
 					<td>601</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 
 				</tr>
 				<tr>
-					<td>mila</td>
+					<td class="left">mila</td>
 					<td>cse</td>
 					<td>4</td>
 					<td>21</td>
 					<td>601</td>
-					<td>female</td>
+					<td class="left">female</td>
 					<td>01712345678</td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
 
-				</tr> -->
+				</tr>  -->
 			</tbody>
 		</table>
 	

@@ -1,77 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <title>New Entry</title>
 
-    <style>
-        form
-        {
-            padding: 150px;
-
-            background: white;
-        }
-
-        body
-        {
-            background-image: url("back2.jpg");
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-
-
-    </style>
-
-
-    <title>Application Form for "Osmani Hall"</title>
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
     
-    <link rel="stylesheet" href="/Styles/style.css">
-    <link rel="stylesheet" href="/Styles/toast.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script type="text/javascript" src="/Script/application.js"></script>
-    <script src="/Script/toast.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+    <script src="/Script/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/Styles/application.css">
+
 </head>
-<body>
+<body background="new6.jpg" style="background-repeat: no-repeat; background-attachment: fixed;">
 
-<div class="topnav">
 
-   <a class="active" href="/" id="home">Home</a>
-   
+<div class="topnav" id="top-menu">
+
+    <ul>
+
+       <li><a  href="/" id="entry">Entry List</a></li>
+       <li><a href="/" id="gst">Guest Form</a></li>
+       <li><a href="/contact" id="cntct">Contact</a></li>
+       <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID"></input></li>
+     </ul>
+
 </div>
 
 
-<div id="mainContainer" style="margin-left: 30%; margin-top: 100px; " >
+
+<div style="width: 50%; border: 3px solid #15bf86; background: #333 ;margin-top:7%; margin-left: 30%; margin-bottom: 10%">
+<form action="/students" method="post" enctype="multipart/form-data">
+  <div id="mainContainer" style=" margin-top: 5%; " >
     <div class="logoContainer" style=" width: 500px">
-        <img src="logo.png" alt="" class="float-left" style="margin-top: 4px;height:100% ;width:20%" >
-        <img src="pp.jpg" alt="" class="float-right" style="margin-right: -90px; margin-top: 15px" height="100" width="100">
+        <img src="logo.png" alt="" class="float-left" style="height:100% ;width:20% ;margin-right: 2%;margin-left: 2%" >
+        <img src="pp.jpg" alt="" class="float-right" style="margin-right: -15% " height="100" width="100">
         
     </div>
-
-    <div style="width: 600px; border: 3px solid forestgreen; ">
-        <form action="/students" method="post" enctype="multipart/form-data" >
-        	
-        	<div class="float-right" > 
-                
-                <input id="image" style="margin-left: 43.5px;width:50% ; margin-top: -65px ;border:transparent; color:transparent;background: transparent;"  type="file" name="profile_photo" placeholder="Photo"  capture>
-            </div>
-       		
-
-            <h4 style="text-align: center; margin-top:-100px;	font-size:12px;">MIST</h4>
-            <h3 style="font-size: 20px; margin-top: 25px ; text-align:center;">Application Form for "Osmani Hall"</h3>
-            <h5 style="font-size: 15px; margin-top: 100px; margin-left: -30px">1.Student's Basic Information</h5>
+  <div class="container">
+    <h1 style="color: white">Registration Form</h1>
+    <p style="color: white">Please fill in this form to add a new student.</p>
+    <hr>
 
 
             <div class="form-group row" >
 
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Student's Name" class="form-control" name="stdname" required requiredmessage="Name is required.">
+                <div style="margin-top:20%;margin-left:4%;margin-right:-10%; width:150%;">
+                    <input type="text" placeholder="Student's Name" class="form-control" name="stdname" required>
                 </div>
             </div>
 
             <div class="form-group row">
 
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%;">
                     <input type="number" placeholder="Student's Phone number" class="form-control" name="stdphn" required>
                 </div>
             </div>
@@ -163,8 +147,8 @@
                     <input type="number" placeholder="Academic Year" class="form-control" name="acyear" required>
                 </div>
             </div>
-			
-			<div class="form-group row">
+      
+      <div class="form-group row">
 
                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
                     <input type="number" placeholder="Level" class="form-control" name="level" required>
@@ -177,33 +161,33 @@
             <fieldset class="form-group row">
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <label class="form-check-label" style="margin-left:5%">
+                        <label class="form-check-label" style="margin-left:35% ;color: white">
                             <input class="form-check-input" type="radio" name="gender"  value="Male"  >
                             Male
                         </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label" style="margin-left:5%">
-                            <input class="form-check-input" type="radio" name="gender"  value="Female" >
+                        <label class="form-check-label" style="margin-left:35%; color: white ">
+                            <input class="form-check-input" type="radio" name="gender"  value="Female">
                             Female
                         </label>
                     </div>
 
                 </div>
             </fieldset>
-			
-		<select class="matha" name="hall" style="margin-left:5%" >
-		<option value="Osmani Hall">Osmani Hall</option> <!-- -_- eivabe -->
-		<option value="Extension A">Extension A</option>
-		<option value="Extension B">Extension B</option>
-		<option value="Extension C">Extension C</option>
-		<option value="Extension D">Extension D</option>
-		<option value="Extension E">Extension E</option>
-		<option value="Extension F">Extension F</option>
+      
+    <select class="matha" name="hall" style="margin-left:14%;background: #e1dddc" >
+    <option value="Osmani Hall">Osmani Hall</option> <!-- -_- eivabe -->
+    <option value="Extension A">Extension A</option>
+    <option value="Extension B">Extension B</option>
+    <option value="Extension C">Extension C</option>
+    <option value="Extension D">Extension D</option>
+    <option value="Extension E">Extension E</option>
+    <option value="Extension F">Extension F</option>
 
 
-		</select>
-		<div class="form-group row">
+    </select>
+    <div class="form-group row">
 
                 <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
                     <input type="text" placeholder="Room number" class="form-control" name="room" required>
@@ -211,7 +195,7 @@
             </div>
 
 
-            <h6 style="font-size: 15px; margin-left: -40px;  margin-top:25px">2.Local Guardian's Information</h6>
+            <!-- <h6 style="font-size: 15px; margin-left: -40px;  margin-top:25px">2.Local Guardian's Information</h6> -->
             <div class="form-group row">
 
                 <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
@@ -247,5 +231,10 @@
         </form>
     </div>
 </div>
+
+
+
+
 </body>
 </html>
+

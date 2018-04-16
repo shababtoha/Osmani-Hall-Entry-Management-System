@@ -148,7 +148,7 @@ app.post('/login',function(req,res){
 	
 	console.log(req.body);
 
-	if(!req.body.uname || !req.body.psw){
+	if(!req.body.uname || !req.body.psw || !req.body.type){
 		res.send("invalid");
 		return;
 	}
@@ -156,7 +156,7 @@ app.post('/login',function(req,res){
 		res.send(req.session.user);
 		return;
 	}
-	loginauth.checkLogin(req.body.uname,req.body.psw,res,req);
+	loginauth.checkLogin(req.body.uname,req.body.psw,res,req,req.body.type);
 });
 
 app.post("/resetpass",function(req,res){
@@ -183,6 +183,7 @@ app.post("/resetpass",function(req,res){
 
 });
 
+// get baby get
 
 
 app.get('/application',function(req,res) {
@@ -194,6 +195,16 @@ app.get("/login",function(req,res){
 		res.redirect("/"+req.session.user);
 		return;
 	}
+	if(!req.query.auth){
+		res.redirect("/auth");
+		return;
+	}
+	if(req.query.auth=="dsw" || req.query.auth=="manager" || req.query.auth=="Ansar");
+	else{
+		res.redirect("/auth");
+		return;
+	}
+
 	res.sendFile(process.cwd() + '/Views/login.html');
 });
 app.get("/students",function(req,res){
@@ -204,7 +215,7 @@ app.get("/in-out",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
 });
 app.get("/residentstudent",function(req,res){
-	res.sendFile(process.cwd() + '/Views/mergeTable.html');
+	res.sendFile(process.cwd() + '/Views/table.html');
 });
 app.get("/",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
@@ -220,22 +231,23 @@ app.get("/resetcode",function(req,res){
 		return;
 	}
 	if(!req.query.code){
-		res.send("Not a Valid Url+s");
+		res.send("Not a Valid Url");
 		return;
 		
 	}
 	var code = req.query.code.split(" ");
-	if(code.length!==2){
-		res.send("Not a Valid Url+s");
+	console.log(Number(code[0]) );
+	if(code.length!==2  || !Number(code[0]) || !Number(code[1])){
+		res.send("Not a Valid Url");
 		return;
 		
 	}
-	if(Date.now < code[0] ){
-		res.send("Not a Valid Url+s");
+	if(Date.now < Number(code[0]) ){
+		res.send("Not a Valid Url");
 		return;
 	}
 	if(Date.now()/100 - Number(code[0])/100 > 86400){
-		res.send("Not a Valid Url+s");
+		res.send("Not a Valid Url");
 		return;
 	}
 
@@ -245,7 +257,10 @@ app.get("/resetcode",function(req,res){
 		collection.find({ "hash" : code[1]+""}).toArray(function(err,documents){
 			if(documents.length==1){
 				res.sendFile(process.cwd()+'/Views/resetcode.html');
-			};
+				
+			}
+			else res.send("not a valid url");
+
 		});
 	});
 });
@@ -256,12 +271,29 @@ app.get("/pwreset",function(req,res){
 
 app.get("/dsw",function(req,res){
 	if(req.session.user==="dsw")
-		res.send("DSW er page banano hoynai :3");
-	else res.redirect("/login");
+		res.sendFile(process.cwd()+"/Views/provost.html");
+	else res.redirect("/login?auth=dsw");
+});
+app.get("/auth",function(req,res){
+	if(req.session.user){
+		res.redirect("/login");
+		return;
+	}
+	res.sendFile(process.cwd()+"/Views/auth.html");
 });
 
-
-
+app.get("/Ansar",function(req,res){
+	if(req.session.user==="Ansar"){
+		res.sendFile(process.cwd()+"/Views/ansar.html");
+		return;
+	}
+	else res.redirect("/login?auth=Ansar");
+});
+app.get("/manager",function(req,res){
+	if(req.session.user==="manager")
+		res.sendFile(process.cwd()+"/Views/manager.html");
+	else res.redirect("/login?auth=manager");
+})
 
 
 app.listen(8080,function(){

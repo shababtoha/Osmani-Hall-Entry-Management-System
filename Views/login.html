@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<meta charset="utf-8">
+    <title>SignIn</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="/Styles/bootstrap.min.css">
-  <script src="Script/login.js"></script>
-  <link rel="stylesheet" href="Styles/login.css">
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <link rel="stylesheet" type="text/css" href="/Styles/login.css">
+ 
   <link rel="stylesheet" href="/Styles/toast.css">
   <script src="/Script/toast.js"></script>
+  <script type="text/javascript" src="/Script/login.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<div class="topnav">
+<!-- <div class="topnav">
 
    <a class="active" href="/" id="home">Home</a>
    
 </div>
+ -->
+ <div class="topnav" id="top-menu">
+  <!-- <img src="logo.png" class= "pic" alt=""  style="margin-top: 1% ; margin-left:5%; " height="60" width="63" > -->
+    <ul>
+
+      <li><a href="/" id="home">Home</a></li>
+       <li><a  href="/residentstudent" id="entry">Entry List</a></li>
+       <!-- <li><a href="/login" id="login">Log In</a></li> -->
+       <li><a href="#" id="gst">Guest Form</a></li>
+       <li><a href="/contact" id="cntct">Contact</a></li>
+       <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID"></input></li>
+     </ul>
+
+</div>
 
 
-<div class="container" style="width:400px">
+<div class="container" style="width:400px; margin-left: 450px">
   <div class="FORM" >
   <div class="imgcontainer">
     <img src="logo.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
-    <label for="uname" style="color:forestgreen"><b>Email</b></label>
+    <label for="uname" style="color:#15bf86"><b>Email</b></label>
     <input type="text" placeholder="Enter Email ID" name="uname" id="usrname" required>
 
-    <label for="psw" style="color:forestgreen"><b>Password</b></label>
+    <label for="psw" style="color:#15bf86"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="pw" required>
 
-    <button  id="login" onclick="login()">Login</button>
+    <button  id="login" onclick="login()"><span id="spin" class=""></span> Login</button>
     <label>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-     <a href="/login"><button type="button" class="cancelbtn" id="cnclbtn">Cancel</button></a>
+     <a href="/auth"><button type="button" class="cancelbtn" id="cnclbtn">Cancel</button></a>
     <span class="psw">Forgot <a href="/pwreset">password?</a></span>
   </div>
 </div>

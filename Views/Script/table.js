@@ -25,13 +25,12 @@ $(document).ready(function(){
 });
 function make_row(obj){
 	return 	'<tr>\
-			<td>'+obj.name+'</td>\
+			<td class="left">'+obj.name+'</td>\
 			<td>'+obj.course+'</td>\
 			<td>'+obj.level+'</td>\
 			<td>'+obj.stdid+'</td>\
 			<td>'+obj.room+' </td>\
-			<td>'+obj.gender+'</td>\
+			<td class="left">'+obj.gender+'</td>\
 			<td>'+obj.contact+'</td>\
-			<td><button type="button" class="btn btn-primary" style="width:100% ; background:#00004d ; color:white;" id='+obj.id+'>Edit</button></td>\
-			</tr>';
+			<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>';
 }

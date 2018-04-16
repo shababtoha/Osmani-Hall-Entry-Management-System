@@ -1,0 +1,157 @@
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+    }
+
+
+
+    /* Hide the link that should open and close the topnav on small screens */
+    .topnav .icon {
+        display: none;
+    }
+    .topnav .current-menu-item a::before,
+    .topnav .current_page_item a::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+    }
+    .topnav li a:hover{
+        border-bottom: 2px solid #15bf86;
+        -webkit-transition-property: right;
+        transition-property: right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+    .topnav li a:hover {
+        opacity: 1 !important;
+    }
+    .topnav li a:hover:before {
+        right: 0;
+    }
+    .topnav  li li a:before {
+        bottom: 10%;
+    }
+
+    .topnav ul li a:hover:{
+        border-bottom: 2px solid red;
+    }
+    
+	
+    .right{
+        float: right !important;
+        display: block !important;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+
+    }
+	
+    .white{
+        color: white !important;
+    }
+	
+     .button {
+  border-radius: 10px;
+  background-color: #333;/*#f4511e;*/
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 380px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px 480px;
+ }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+*{
+   box-sizing: border-box;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    margin-top: 200px;
+
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+     margin-top: 200px;
+
+}
+
+form.example button:hover {
+    background: #15bf86;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -12,13 +12,13 @@ app.use(cookieParser());
 app.use(session({secret: "Hey! Wanna Know my Secret Identity?",saveUninitialized : true,resave : false}));
 
 module.exports = {
-  checkLogin : function(id,pass,res,req){
+  checkLogin : function(id,pass,res,req,type){
   	console.log(id,pass);
   	var val = hash(pass);
   	mongo.connect(mongourl,function(err,db){
   		if(err) console.log(err);
   		var collection = db.collection('auth');
-  		collection.find({ email : id , pass : val+"" }).toArray(function(err,documents){
+  		collection.find({ email : id , pass : val+"" , "type" : type }).toArray(function(err,documents){
   			if(err) console.log(err);
   		//	console.log(documents);
   			if(documents.length == 1){

@@ -1,0 +1,161 @@
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+    }
+
+
+
+    /* Hide the link that should open and close the topnav on small screens */
+    .topnav .icon {
+        display: none;
+    }
+    .topnav .current-menu-item a::before,
+    .topnav .current_page_item a::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+    }
+    .topnav li a:hover{
+        border-bottom: 2px solid #15bf86;
+        -webkit-transition-property: right;
+        transition-property: right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+    .topnav li a:hover {
+        opacity: 1 !important;
+    }
+    .topnav li a:hover:before {
+        right: 0;
+    }
+    .topnav  li li a:before {
+        bottom: 10%;
+    }
+
+    .topnav ul li a:hover:{
+        border-bottom: 2px solid red;
+    }
+    
+	
+    .right{
+        float: right !important;
+        display: block !important;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+
+    }
+	topnav .serch:focus{
+		width : 30%;
+		background : white;
+	}
+	
+    .white{
+        color: white !important;
+    }
+	.search{
+		 background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat  center;
+		margin-top : 0.5%;
+		margin-right : 1%;
+		border: solid 1px;
+		border-radius : 50%;
+		width : 1px;
+		height : 1px;
+		cursor : pointer;
+		transition: all .5s;
+		background-color : inherit;
+		color : inherit;
+	}
+	.search:focus{
+		background : none;
+		width: 200px;
+		border-radius : 20%;
+		background-color: white;
+		border-color: white;
+		font-size : 15px;;
+		-webkit-border-radius: 10em;
+		-moz-border-radius: 10em;
+		background-color : white;
+		cursor : auto ;
+		border-width : 3px;
+		color : black;
+		outline : none;
+	}
+     
+
+     .button {
+  border-radius: 10px;
+  background-color: #333;/*#f4511e;*/
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px 480px;
+ }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.first{
+     /*margin: 150px 490px;*/
+}
+}
+.second{
+    /*margin: 0px 490px;*/
+}
+.third{
+    /*margin: 50px 490px;*/
+}
+

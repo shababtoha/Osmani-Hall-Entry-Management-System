@@ -1,5 +1,9 @@
 
 var flag = true;
+$(document).ready(function(){
+	console.log("here");
+})
+
 function reset(){
 	var email  =  $("#usrname").val();
 	if(!email) return;
