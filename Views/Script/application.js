@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 		$.toast({
     		heading: 'Success',
-    		text: 'Student Information added Successfully. click <a href="/students">here</a> to view',
+    		text: 'Student Information added Successfully. click <a href="/residentstudent">here</a> to view',
     		showHideTransition: 'slide',
     		icon: 'success',
     		 hideAfter : false,

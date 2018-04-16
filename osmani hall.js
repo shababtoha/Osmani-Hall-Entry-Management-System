@@ -40,10 +40,10 @@ function checkValidPhone(x)
 
 app.post('/students',function(req,res){
 	//console.log(req.body);
-	if(!req.files){
+	/*if(!req.files){
 		res.redirect('/application?insert=false');
 		return;
-	}
+	}*/
 	if(!req.body){
 		//console.log("hmm");
 		res.redirect('/application?insert=false');
@@ -84,11 +84,11 @@ app.post('/students',function(req,res){
 
 
 	
-  	var myfile = req.files.profile_photo;
+  /*	var myfile = req.files.profile_photo;
   	var type = req.files.profile_photo.mimetype.split("/")[1];
 	myfile.mv(process.cwd()+'/uploads/'+req.body.stdid+'.'+type, function(err) {
     	if(err) console.log("upload e error");
-  	});
+  	});*/
 
 
   	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.gdphn))){
@@ -187,7 +187,9 @@ app.post("/resetpass",function(req,res){
 
 
 app.get('/application',function(req,res) {
-	res.sendFile(process.cwd() + '/Views/application.html');
+	if(req.session.user==="manager")
+		res.sendFile(process.cwd() + '/Views/application.html');
+	else res.send("You Are not authorized to view this page");
 });
 
 app.get("/login",function(req,res){
@@ -207,9 +209,9 @@ app.get("/login",function(req,res){
 
 	res.sendFile(process.cwd() + '/Views/login.html');
 });
-app.get("/students",function(req,res){
-	res.sendFile(process.cwd() + '/Views/table.html');
-});
+// app.get("/students",function(req,res){
+// 	res.sendFile(process.cwd() + '/Views/table.html');
+// });
 
 app.get("/in-out",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
