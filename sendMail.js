@@ -32,6 +32,7 @@ function SEND(email,res,sub,txt) {
   
   	transporter.sendMail(mailOptions, (err, ress) => {
     	if (err) {
+          console.log(err);
         	res.send(err);
     	} else {
         	console.log(JSON.stringify(ress));

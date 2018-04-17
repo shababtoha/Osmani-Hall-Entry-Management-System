@@ -40,10 +40,10 @@ function checkValidPhone(x)
 
 app.post('/students',function(req,res){
 	//console.log(req.body);
-	/*if(!req.files){
+	if(!req.files){
 		res.redirect('/application?insert=false');
 		return;
-	}*/
+	}
 	if(!req.body){
 		//console.log("hmm");
 		res.redirect('/application?insert=false');
@@ -84,11 +84,11 @@ app.post('/students',function(req,res){
 
 
 	
-  /*	var myfile = req.files.profile_photo;
+  	var myfile = req.files.profile_photo;
   	var type = req.files.profile_photo.mimetype.split("/")[1];
 	myfile.mv(process.cwd()+'/uploads/'+req.body.stdid+'.'+type, function(err) {
     	if(err) console.log("upload e error");
-  	});*/
+  	});
 
 
   	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.gdphn))){
@@ -174,7 +174,7 @@ app.post("/resetpass",function(req,res){
 			}
 
 			var link ="Please Use this link <br> http://localhost:8080/resetcode?code="+ Date.now()+"+"+documents[0].hash;
-			//console.log(link);
+			// console.log(link);
 			MAILSENDER.sendM(req.body.email,res,"Password Reset",link);
 		});
 
@@ -182,6 +182,14 @@ app.post("/resetpass",function(req,res){
 
 
 });
+
+app.post('/logout',function(req,res){
+	req.session.destroy(function(err){
+		if(!err)res.send("ok");
+		else res.send("not ok");
+	});
+});
+
 
 // get baby get
 
@@ -217,7 +225,10 @@ app.get("/in-out",function(req,res){
 	res.sendFile(process.cwd() + '/Views/table 2.html');
 });
 app.get("/residentstudent",function(req,res){
-	res.sendFile(process.cwd() + '/Views/table.html');
+	if(req.session.user==="manager")
+		res.sendFile(process.cwd() + '/Views/table.html');
+	else res.send("You are not authorized to view this page");
+
 });
 app.get("/",function(req,res){
 	res.sendFile(process.cwd() + '/Views/first page.html');
@@ -297,6 +308,9 @@ app.get("/manager",function(req,res){
 	else res.redirect("/login?auth=manager");
 })
 
+app.get("/guestform",function(req,res){
+	res.sendFile(process.cwd()+"/Views/guestForm.html")
+})
 
 app.listen(8080,function(){
 	console.log('Port is listening');

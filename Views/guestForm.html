@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Guest Form</title>
+
+    
+    
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+   
+    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+     <script src="/Script/bootstrap.min.js"></script>   
+     <link rel="stylesheet" type="text/css" href="/Styles/guestForm.css">
+    
+</head>
+<body background="new6.jpg" style="background-repeat: no-repeat; background-attachment:  fixed">
+
+
+<div class="topnav" id="top-menu">
+  <!-- <img src="logo.png" class= "pic" alt=""  style="margin-top: 1% ; margin-left:5%; " height="60" width="63" > -->
+    <ul>
+      <li><a href="/">Home</a></li>
+       <li><a  href="/" id="entry">Entry List</a></li>
+       
+      <!--  <li><a href="/gu" id="gst">Guest Form</a></li>
+ -->       <li><a href="/contact" id="cntct">Contact</a></li>
+     <li><a class="right" href="/auth" id="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+       <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID"></input></li>
+
+     </ul>
+
+</div>
+
+
+
+<div id="mainContainer" style="margin-left: 30%; margin-top: 100px; " >
+    <div class="logoContainer" style=" width: 500px">
+        <img src="logo.png" alt="" class="float-left" style="margin-top: 3%;height:100% ;width:20%" >    
+        
+    </div>
+
+    <div style="width: 640px; border: 3px solid #15bf86; background: #333;margin-top:-1%; margin-left:-1.3% ;margin-bottom: 10% ">
+        <form action="/students" method="post" enctype="multipart/form-data" >
+            
+            
+            
+
+           <h1 style="color: white; margin-top: 5% ; text-align: center;">Guest Form</h1>
+    <!-- <img src="pp.jpg" alt="" class="float-right" style="margin-right: 5%; margin-top: 5%" height="100" width="100"> -->
+    <p style="color: white;text-align: center">Please fill in this form for approval.</p>
+
+            <div class="form-group row" >
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Student's Name" class="form-control" name="stdname" required requiredmessage="Name is required.">
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="number" placeholder="Student's Phone number" class="form-control" name="stdphn" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="guardian's Name" class="form-control" name="grdnname" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="email" placeholder="guardian's Email" class="form-control"  name="grdnmail">
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="number" placeholder="guardian's Phone number" class="form-control" name="grdnphn" required>
+                </div>
+            </div>
+
+           
+
+            <div class="form-group row">
+
+                <div class="addr" style=" margin-left:5%; margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Present Address" class="form-control" name="prsntaddr" required>
+                </div>
+            </div>
+
+           
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Course Name" class="form-control" name="crse" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="number" placeholder="Student ID" class="form-control" name="stdid" required>
+                </div>
+            </div>
+
+           
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="number" placeholder="Academic Year" class="form-control" name="acyear" required>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+
+               <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="number" placeholder="Level" class="form-control" name="level" required>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Reason for Staying" class="form-control" name="reason" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Entering date" class="form-control" name="from" onfocus="(this.type='date')" required>
+                </div>
+            </div>
+
+             <div class="form-group row">
+
+                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
+                    <input type="text" placeholder="Leaving Date" class="form-control" name="to" onfocus="(this.type='date')" required>
+                </div>
+            </div>
+
+           
+
+            <fieldset class="form-group row">
+                <div class="col-sm-10">
+                    <div class="form-check"> 
+                        <label class="form-check-label" style="margin-left:38% ; color: white">
+                            <input class="form-check-input" type="radio" name="gender"  value="Male"  >
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" style="margin-left:38% ;color: white">
+                            <input class="form-check-input" type="radio" name="gender"  value="Female" >
+                            Female
+                        </label>
+                    </div>
+
+                </div>
+            </fieldset>
+            
+        
+        
+
+
+            <div class="form-group row">
+
+                <div class="w" style="margin-left:25%; width:115%">
+                    <input type="submit"  class="btn btn-success" name="SUBMIT" style="width: 220px;">
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
