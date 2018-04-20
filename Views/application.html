@@ -1,247 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
+
 <head>
-    <meta charset="utf-8">
-    <title>New Entry</title>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <title>Sign Up Form</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <link rel="stylesheet" href="/Styles/toast.css">
+      <script src="/Script/toast.js"></script>
 
-    
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
-    <script src="/Script/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/Styles/toast.css">
-    <script src="/Script/toast.js"></script>
-    <link rel="stylesheet" type="text/css" href="/Styles/application.css">
-    <script type="text/javascript" src="/Script/application.js"></script>
-     <script type="text/javascript" src="/Script/logout.js" ></script>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+      <link rel="stylesheet" href="Styles/application.css">
+            
+  
 </head>
-<body background="new6.jpg" style="background-repeat: no-repeat; background-attachment: fixed;">
+
+<body>
+
+<nav class="navbar navbar-inverse" style="background-color:#00897b;color: white ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+      <li><a  href="/" id="entry" style="color: white">Entry List</a></li>
+       <li><a href="/residentstudent" id="gst" style="color: white;">Resident Student</a></li>
+       <li><a href="/contact" id="cntct" style="color: white">Contact</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" >
+
+      <!-- <div class="input-group input-group-icon" style="color:  #616a6b  ">
+        <input type="text" placeholder="Search" name="Search" required/>
+        <div class="input-icon"><i class="fa fa-search" style="color: #00897b"></i></div>
+      </div> -->
+      <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID"></input></li>
+      
+    </ul>
+  </div>
+</nav>
 
 
-<div class="topnav" id="top-menu">
+  
+<div class="container" style="border-color: #00897b">
+  <form >
+    <div class="row" >
+      <h4 style = "text-align:center ; ">Registration Form</h4>
 
-    <ul>
-
-       <li><a  href="/" id="entry">Entry List</a></li>
-       <li><a href="/residentstudent" id="gst">Resident Student</a></li>
-       <li><a href="/contact" id="cntct">Contact</a></li>
-       <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID"></input></li>
-     </ul>
-
-</div>
-
+      <div class="file-upload" id="image" >
+        <img src="provost.jpg" style="width: 90%">
+            <button class="file-upload-btn" type="button" >Add Image</button>
+      </div>
 
 
-<div style="width: 50%; border: 3px solid #15bf86; background: #333 ;margin-top:7%; margin-left: 30%; margin-bottom: 10%">
-<form action="/students" method="post" enctype="multipart/form-data">
-  <div id="mainContainer" style=" margin-top: 5%; " >
-    <div class="logoContainer" style=" width: 500px">
-        <img src="logo.png" alt="" class="float-left" style="height:100% ;width:20% ;margin-right: 2%;margin-left: 2%" >
-        <img src="pp.jpg" alt="" class="float-right" style="margin-right: -15% " height="100" width="100">
-        
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949 ">
+        <input type="text" placeholder="Student's Name" name="stdname" required/>
+        <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+        <input type="number" placeholder="Student's Phone" name="stdphn" required>
+        <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+         <input type="text" placeholder="Father's Name"  name="fatname" required>
+        <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+         <input type="email" placeholder="Father's Email" name="fatmail">
+        <div class="input-icon"><i class="fa fa-envelope " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+          <input type="number" placeholder="Father's Phone" name="fatphn" required>
+        <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
+      </div>
+
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Mother's Name" name="motname" required>
+        <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
+      </div>
+
+
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="email" placeholder="Mother's Email" name="motmail">
+        <div class="input-icon"><i class="fa fa-envelope " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="number" placeholder="Mother's Phone" name="motphn" required>
+        <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
+      </div>
+
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Present Address" name="prsntaddr" required>
+        <div class="input-icon"><i class="fa fa-map-marker " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Permanent Address" name="pmntaddr" required>
+        <div class="input-icon"><i class="fa fa-map-marker " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Course Name"  name="crse" required>
+        <div class="input-icon"><i class="fa fa-graduation-cap  " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="number" placeholder="Student ID"  name="stdid" required>
+        <div class="input-icon"><i class="fa fa-id " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="number" placeholder="Registration Number"  name="regno" required>
+        <div class="input-icon"><i class="fa fa-id " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949"> 
+                    <input type="text" placeholder="Academic Year" name="acyear" required>
+        <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="number" placeholder="Level" name="level" required>
+        <div class="input-icon"><i class="fa fa- " style="color: #00897b"></i></div>
+      </div>
+
     </div>
 
-    <div class="" >                
-                <input id="image" style="width:50%;margin-left: 26.8%;  margin-top: 7% ;border:transparent; color:transparent;background: transparent;"  type="file" name="profile_photo" placeholder="Photo"  capture>
-     </div>
 
-  <div class="container">
-    <h1 style="color: white">Registration Form</h1>
-    <p style="color: white">Please fill in this form to add a new student.</p>
-    <hr>
+    <div class="row">
 
-
-            <div class="form-group row" >
-
-                <div style="margin-top:20%;margin-left:4%;margin-right:-10%; width:150%;">
-                    <input type="text" placeholder="Student's Name" class="form-control" name="stdname" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%;">
-                    <input type="number" placeholder="Student's Phone number" class="form-control" name="stdphn" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Father's Name" class="form-control" name="fatname" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="email" placeholder="Father's Email" class="form-control"  name="fatmail">
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Father's Phone number" class="form-control" name="fatphn" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Mother's Name" class="form-control" name="motname" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="email" placeholder="Mother's Email" class="form-control"  name="motmail">
-                </div>
-            </div>
-
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Mother's Phone number" class="form-control" name="motphn" required>
-                </div>
-            </div>
-
-
-
-
-            <div class="form-group row">
-
-                <div class="addr" style=" margin-left:5%; margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Present Address" class="form-control" name="prsntaddr" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="addr" style=" margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Permanent Address" class="form-control" name="pmntaddr" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Course Name" class="form-control" name="crse" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Student ID" class="form-control" name="stdid" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Registration Number" class="form-control" name="regno" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Academic Year" class="form-control" name="acyear" required>
-                </div>
-            </div>
+       
+        <div class="input-group" style="width: 100%">
+          <input type="radio" name="gender" value="male" id="gender-male"/>
+          <label for="gender-male">Male</label>
+          <input type="radio" name="gender" value="female" id="gender-female"/>
+          <label for="gender-female">Female</label>
+        </div>
       
-      <div class="form-group row">
-
-               <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Level" class="form-control" name="level" required>
-                </div>
-            </div>
-
-
-
-
-            <fieldset class="form-group row">
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <label class="form-check-label" style="margin-left:35% ;color: white">
-                            <input class="form-check-input" type="radio" name="gender"  value="Male"  >
-                            Male
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label" style="margin-left:35%; color: white ">
-                            <input class="form-check-input" type="radio" name="gender"  value="Female">
-                            Female
-                        </label>
-                    </div>
-
-                </div>
-            </fieldset>
-      
-    <select class="matha" name="hall" style="margin-left:14%;background: #e1dddc" >
-    <option value="Osmani Hall">Osmani Hall</option> <!-- -_- eivabe -->
-    <option value="Extension A">Extension A</option>
-    <option value="Extension B">Extension B</option>
-    <option value="Extension C">Extension C</option>
-    <option value="Extension D">Extension D</option>
-    <option value="Extension E">Extension E</option>
-    <option value="Extension F">Extension F</option>
-
-
-    </select>
-    <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Room number" class="form-control" name="room" required>
-                </div>
-            </div>
-
-
-            <!-- <h6 style="font-size: 15px; margin-left: -40px;  margin-top:25px">2.Local Guardian's Information</h6> -->
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Local Guardian's Name" class="form-control"  name="gdname" required>
-                </div>
-            </div>
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="email" placeholder="Local Guardian's Email" class="form-control"  name="gdmail" required>
-                </div>
-            </div>
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="number" placeholder="Local Guardian's Phone number" class="form-control"  name="gdphn" required>
-                </div>
-            </div>
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:5%;margin-right:-10%; width:115%">
-                    <input type="text" placeholder="Local Guardian's Address" class="form-control"  name="gdaddr" required>
-                </div>
-            </div>
-            <div class="form-group row">
-
-                <div class="w" style="margin-left:25%; width:115%">
-                    <input type="submit"  class="btn btn-success"  style="width: 220px;">
-                </div>
-            </div>
-
-
-        </form>
     </div>
+
+    <div class="row">
+
+       <select class="matha" name="hall"  style="width: 100%;">
+       <option value="Osmani Hall">Osmani Hall</option> <!-- -_- eivabe -->
+        <option value="Extension A">Extension A</option>
+        <option value="Extension B">Extension B</option>
+        <option value="Extension C">Extension C</option>
+        <option value="Extension D">Extension D</option>
+        <option value="Extension E">Extension E</option>
+        <option value="Extension F">Extension F</option>
+       </select>
+   
+    </div><br>
+
+    <div class="row">
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Room number"  name="room" required>
+        <div class="input-icon"><i class="fa fa-id " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Local Guardian's Name"  name="gdname" required>
+        <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="email" placeholder="Local Guardian's Email" name="gdmail" required>
+        <div class="input-icon"><i class="fa fa-envelope " style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="number" placeholder="Guardian's Phone" name="gdphn" required>
+        <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+                    <input type="text" placeholder="Local Guardian's Address" name="gdaddr" required>
+        <div class="input-icon"><i class="fa fa-map-marker " style="color: #00897b"></i></div>
+      </div>
+
+
+      <div >
+                    <input type="submit"  class="btn btn-success btn-lg"  style="color: white; background-color: #00897b">
+      </div>
+
+
+
+    </div>
+    
+  </form>
 </div>
-
-
 
 
 </body>
-</html>
 
+</html>
