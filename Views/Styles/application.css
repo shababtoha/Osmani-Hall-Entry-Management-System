@@ -282,52 +282,28 @@ select option {
   opacity: 0;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    /* Add a black background color to the top navigation */
-  
-  
-    .white{
-        color: white !important;
-    }
-  .search{
-     background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat  center;
-   margin-top : 15.5%;
-    margin-right : 25%;
-    border: solid 1px;
-    border-radius : 50%;
-    width : 1px;
-    height : 1px;
-    cursor : pointer;
-    transition: all .5s;
-    background-color : inherit;
-    color : inherit;
-
-  }
-  .search:focus{
-    background : none;
-    width: 200px;
-   height: 0px;
-    border-radius : 20%;
-    background-color: white;
-    border-color: white;
-    font-size : 15px;
-    -webkit-border-radius: 10em;
-    -moz-border-radius: 10em;
-    background-color : white;
-    cursor : auto ;
-    border-width : 3px;
-    color : black;
-    outline : none;
-  }
      
+
+     .search-form-wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 20px 15px;
+    margin-top: -2%;
+    //background: url(/resources/images/misc/bg_search-open.png) right center no-repeat #f89d1c;
+}
+.search-form-wrapper.open {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    #navbar{
+      border-color: #00897b;
+        float:none;
+        display: block;
+    }
+   
+
+   
+}
