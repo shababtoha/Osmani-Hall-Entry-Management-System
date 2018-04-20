@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <title>Sign Up Form</title>
 
-          <script  src="Script/jquery.min.js"></script>
+          <script  src="/Script/jquery.min.js"></script>
        <script src="/Script/bootstrap.min.js"></script>
        
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -23,10 +23,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-      <link rel="stylesheet" href="Styles/application.css">
-      <link rel="stylesheet" href="toggled-search-bar.css">
+      <link rel="stylesheet" href="/Styles/application.css">
+<!--       <link rel="stylesheet" href="toggled-search-bar.css">
 
-
+ -->
 
 </head>
 
@@ -79,13 +79,19 @@
     <div class="row" >
       <h4 style = "text-align:center ; ">Registration Form</h4>
 
-      <div class="file-upload" id="image" name="profile_photo" >
+      <div class="file-upload" id="image" name="" >
         <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
         
 
+<<<<<<< HEAD
+        <div class="image-upload-wrap">
+          <img src="pp.jpg" style="width: 90%">
+         <input class="file-upload-input" type='file' name="profile_photo" onchange="readURL(this);" accept="image/*" />
+=======
         <div class="image-upload-wrap" id="image" name="profile_photo" >
           <img src="provost.jpg" style="width: 90%">
          <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+>>>>>>> d1d57ac7eb16fd76cd197b8010ff8824f84f8123
         </div>
         <div class="file-upload-content" id="image" name="profile_photo" >
              <img class="file-upload-image" src="#"  />
