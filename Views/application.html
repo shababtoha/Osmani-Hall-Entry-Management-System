@@ -83,12 +83,12 @@
         <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
         
 
-        <div class="image-upload-wrap">
+        <div class="image-upload-wrap" id="image" name="profile_photo" >
           <img src="provost.jpg" style="width: 90%">
          <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
         </div>
-        <div class="file-upload-content">
-             <img class="file-upload-image" src="#" alt="your image" />
+        <div class="file-upload-content" id="image" name="profile_photo" >
+             <img class="file-upload-image" src="#"  />
              <div class="image-title-wrap">
                   <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
               </div>
