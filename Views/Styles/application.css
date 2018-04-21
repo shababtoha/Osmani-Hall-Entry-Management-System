@@ -372,3 +372,9 @@ select option {
 
    
 }
+
+.container-fluid ul li a:hover{
+   // background: black;
+    color:#0645AD !important;
+
+}
