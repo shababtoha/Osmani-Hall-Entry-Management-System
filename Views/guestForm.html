@@ -6,23 +6,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <title>Guest Form</title>
+  <title>Guest Form</title>
 
-          <script  src="/Script/jquery.min.js"></script>
-       <script src="/Script/bootstrap.min.js"></script>
+  <script  src="/Script/jquery.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
        
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-      <link rel="stylesheet" href="/Styles/guestForm.css">
-<!--       <link rel="stylesheet" href="toggled-search-bar.css">
-
- -->
+  <link rel="stylesheet" href="/Styles/guestForm.css">
+  <script type="text/javascript" src="/Script/guestform.js"></script>
 
 </head>
 
@@ -71,7 +69,7 @@
 
   
 <div class="container" style="border:10px #00897b ; margin-top: 5%">
-  <form action=""  >
+  <form action="/guestform" method="post"  >
     <div class="row" >
 
       <img src="logo.png" style="width: 20% ; margin-left: 40%">
@@ -79,71 +77,71 @@
       <h4 style = "text-align:center ; "><font size="6">Guest Form</font></h4>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949; ">
-             <input type="text" placeholder="Student's Name" name="stdname" required">
+             <input type="text" placeholder="Student's Name" name="stdname" required id="stdname">
         <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="number" placeholder="Student's Phone" name="stdphn" required>
+            <input type="number" placeholder="Student's Phone" name="stdphn" required id="stdphn">
         <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="text" placeholder="Guardian's Name"  name="grdnname" required>
+            <input type="text" placeholder="Guardian's Name"  name="grdnname" required id="grdnname">
         <div class="input-icon"><i class="fa fa-user" style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="email" placeholder="Guardian's Email"  name="grdnmail">
+            <input type="email" placeholder="Guardian's Email"  name="grdnmail" id="grdnmail">
         <div class="input-icon"><i class="fa fa-envelope " style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-             <input type="number" placeholder="Guardian'sPhone"  name="grdnphn" required>
+             <input type="number" placeholder="Guardian'sPhone"  name="grdnphn" required id="grdnphn">
         <div class="input-icon"><i class="fa fa-phone" style="color: #00897b"></i></div>
       </div>
 
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="text" placeholder="Present Address"  name="prsntaddr" required>
+            <input type="text" placeholder="Present Address"  name="prsntaddr" required id="prsntaddr">
         <div class="input-icon"><i class="fa fa-map-marker " style="color: #00897b"></i></div>
       </div>
 
 
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="text" placeholder="Course Name"  name="crse" required>
+            <input type="text" placeholder="Course Name"  name="crse" required id="crse">
         <div class="input-icon"><i class="fa fa-graduation-cap " style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-            <input type="number" placeholder="Student ID"  name="stdid" required>
+            <input type="number" placeholder="Student ID"  name="stdid" required id="stdid">
         <div class="input-icon"><i class="fa fa-address-book " style="color: #00897b"></i></div>
       </div>
 
 
-      <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-             <input type="number" placeholder="Academic Year"  name="acyear" required>
+      <!-- <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+             <input type="number" placeholder="Academic Year"  name="acyear" required id="acyear">
         <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
-      </div>
+      </div> -->
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-                    <input type="number" placeholder="Level"  name="level" >
+                    <input type="number" placeholder="Level"  name="level" id="level" required="">
         <div class="input-icon"><i class="fa fa-bookmark " style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-                    <input type="text" placeholder="Reason for Staying"  name="reason" required>
+                    <input type="text" placeholder="Reason for Staying"  name="reason" required id="reason">
         <div class="input-icon"><i class="fa fa-question-circle   " style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-                    <input type="text" placeholder="Entering date"  name="from" onfocus="(this.type='date')" required>
+                    <input type="text" placeholder="Entering date"  name="from" onfocus="(this.type='date')" required id="from">
         <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
       </div>
 
       <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
-                    <input type="text" placeholder="Leaving Date"  name="to" onfocus="(this.type='date')" required>
+                    <input type="text" placeholder="Leaving Date"  name="to" onfocus="(this.type='date')" required id="to">
         <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
       </div>
 
@@ -164,8 +162,8 @@
     </div>
 
     <div class="row">
-      <div >
-                    <input type="submit" name="SUBMIT" class="btn btn-success btn-lg"  style="color: white; background-color: #00897b">
+      <div  onclick="submit()">
+                    <input type="submit" id="submit" name="SUBMIT" class="btn btn-success btn-lg"  style="color: white; background-color: #00897b">
       </div>
 
     </div>

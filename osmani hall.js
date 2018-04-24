@@ -191,6 +191,41 @@ app.post('/logout',function(req,res){
 });
 
 
+app.post("/guestform",function(req,res){
+	var obj = {
+		"stdname" : "",
+		"stdphn"  : "",
+		"grdnname": "",
+		"grdnmail": "",
+		"grdnphn" : "",
+		"prsntaddr": "",
+		"crse" 		: "",
+		"stdid":"",
+		"level":"",
+		"reason":"",
+		"from" : "",
+		"to" : "",
+	}
+	for(var key in obj){
+		if(req.body[""+key]===""){
+			res.redirect("/guestform?insert=error");
+		}
+		obj[""+key] = req.body[""+key];
+	}
+	obj["Status"] = "Pending";
+
+
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection("guestform");
+		collection.insert( obj, function(err,data){
+			res.redirect("/guestlists");
+		});
+	});
+
+});
+
+
+
 // get baby get
 
 
