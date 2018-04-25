@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Guest Profile</title>
+
+  <script  src="/Script/jquery.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
+       
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="/Styles/guestProfile.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    
+    </div>
+  
+</nav>
+
+
+
+
+  
+<div class="container" style="border:10px #00897b ; margin-top: 5%">
+    <div class="row" >
+
+      <img src="logo.png" style="width: 20% ; margin-left: 40%">
+
+      <h4 style = "text-align:center ;margin-bottom: 15% "><font size="6">Pending Guest Request</font></h4>
+
+      <div class="col-sm-5 col-xs-6 tital " >Student's Name:</div><div class="col-sm-7 col-xs-6 " name="stdname" id="stdname" style="color: #666666">Sumaiya Afroz Mila</div>
+      <div class="clearfix"></div>
+      <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Student's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="stdphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnname"> blabla</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnmail"> blabla@gmail.com</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      
+
+     <div class="col-sm-5 col-xs-6 tital " >Present Address:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="prsntaddr"> dhaka</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Course Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="crse"> cse-15</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+
+      <div class="col-sm-5 col-xs-6 tital " >Student ID:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="stdid"> 201514015</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Level:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="level"> 2</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <!-- <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+             <input type="number" placeholder="Academic Year"  name="acyear" required id="acyear">
+        <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
+      </div> -->
+
+      <div class="col-sm-5 col-xs-6 tital " >Reason for Staying:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="reason"> Hall Reunion</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Entering date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="from"> 01/04/2018</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Leaving date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="to"> 01/04/2018</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="gender">Female</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+    </div>
+
+
+
+    <div class="row" style="margin-top: 5% ; margin-left: 10%">
+      <div class="col-sm-5 col-xs-6  "  > <input type="submit" id="accpt"  name="accpt" value="Accept" class="btn btn-success btn-lg"  ></div>
+      <div class="col-sm-5 col-xs-6"><input type="submit" id="rjct" name="rjct" value="Reject" class="btn btn-danger btn-lg" ></div>
+
+
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

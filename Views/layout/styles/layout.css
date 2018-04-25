@@ -23,12 +23,17 @@ File: Layout CSS
 
 /* Top Bar
 --------------------------------------------------------------------------------------------------------------- */
-#topbar{padding:15px 0;  text-align:center; font-weight:700; background:steelblue;}
+#topbar{
+	padding:15px 0;  
+	text-align:center; 
+	font-weight:700; 
+	font-family:Arial ;
+ }
 
 #topbar *{margin:0;}
-#topbar ul li{display:inline-block; margin-right:15px; background-color:steelblue; border-color:steelblue}
-#topbar ul li:last-child{margin-right:0; padding-right:0; border-right:none;background-color:steelblue; border-color:steelblue ;}
-#topbar i{line-height:normal; background-color:steelblue; border-color:steelblue}
+#topbar ul li{display:inline-block; margin-right:15px;padding-left: 2%; }
+#topbar ul li:last-child{margin-right:0; padding-right:0; border-right:none; }
+#topbar i{line-height:normal; b}
 
 
 /* Header

@@ -347,6 +347,10 @@ app.get("/guestform",function(req,res){
 	res.sendFile(process.cwd()+"/Views/guestForm.html")
 })
 
+app.get("/guestprofile",function(req,res){
+	res.sendFile(process.cwd()+"/Views/guestProfile.html")
+})
+
 app.listen(8080,function(){
 	console.log('Port is listening');
 });
