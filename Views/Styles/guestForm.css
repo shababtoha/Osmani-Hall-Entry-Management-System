@@ -11,8 +11,15 @@ body {
   font-size: 15px;
   color: #b9b9b9;
   background-color: #e3e3e3;
- background-repeat: no-repeat;
+// background-repeat: no-repeat;
 
+
+}
+
+.FORM {
+    border: 3px solid #00897b;
+  background: white;
+  
 
 }
 h4 {
@@ -28,7 +35,7 @@ button{
   padding: 1em;
   line-height: 1.4;
   background-color: #f9f9f9;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #95a5a6;
   border-radius: 3px;
   -webkit-transition: 0.35s ease-in-out;
   -moz-transition: 0.35s ease-in-out;
@@ -38,7 +45,7 @@ button{
 }
 input:focus {
   outline: 0;
-  border-color: #64ac15;
+  border-color: #95a5a6;
 }
 input:focus + .input-icon i {
   color: #00897b;
@@ -74,7 +81,7 @@ select:focus,
 select:active {
   background-color: #00897b;
   color: #fff;
-  border-color: #64ac15;
+  border-color: #95a5a6;
 }
 input[type="checkbox"] {
   display: none;
@@ -100,12 +107,12 @@ input[type="checkbox"] + label:after {
   left: 0.2em;
   font-size: 0.8em;
   color: #fff;
-  opacity: 0;
+  //opacity: 0;
   font-family: FontAwesome;
   content: "\f00c";
 }
 input:checked + label:after {
-  opacity: 1;
+ // opacity: 1;
 }
 select {
   height: 3.4em;
@@ -181,6 +188,7 @@ select option {
   padding: 1em 3em 2em 3em;
   margin: 0em auto;
   background-color: #fff;
+  border-color:#00897b !important;
   border-radius: 4.2px;
  border-style: solid;
   box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
