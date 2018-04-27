@@ -18,8 +18,9 @@
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <link rel="stylesheet" href="/Styles/guestProfile.css">
+  <script type="text/javascript" src="/Script/guestprofile.js"></script>
 
 </head>
 
@@ -35,7 +36,9 @@
 
 
 
-
+<div id ="loading" >
+  <img src="https://media1.tenor.com/images/8ac12962c05648c55ca85771f4a69b2d/tenor.gif?itemid=9212724" style="width: 30%; margin-left: 35%;margin-top: 10%">
+</div>
   
 <div class="container" style="border:10px #00897b ; margin-top: 5%">
     <div class="row" >
@@ -48,38 +51,38 @@
       <div class="clearfix"></div>
       <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Student's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="stdphn"> 01711111111</div>
+      <div class="col-sm-5 col-xs-6 tital " >Student's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="stdphn"> 01711111111</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Guardian's Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnname"> blabla</div>
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="grdnname"> blabla</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Guardian's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnmail"> blabla@gmail.com</div>
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="grdnmail"> blabla@gmail.com</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Guardian's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="grdnphn"> 01711111111</div>
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="grdnphn"> 01711111111</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
       
 
-     <div class="col-sm-5 col-xs-6 tital " >Present Address:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="prsntaddr"> dhaka</div>
+     <div class="col-sm-5 col-xs-6 tital " >Present Address:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="prsntaddr"> dhaka</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Course Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="crse"> cse-15</div>
+      <div class="col-sm-5 col-xs-6 tital " >Course Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="crse"> cse-15</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
 
-      <div class="col-sm-5 col-xs-6 tital " >Student ID:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="stdid"> 201514015</div>
+      <div class="col-sm-5 col-xs-6 tital " >Student ID:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="stdid"> 201514015</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Level:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="level"> 2</div>
+      <div class="col-sm-5 col-xs-6 tital " >Level:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="level"> 2</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
@@ -88,19 +91,19 @@
         <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
       </div> -->
 
-      <div class="col-sm-5 col-xs-6 tital " >Reason for Staying:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="reason"> Hall Reunion</div>
+      <div class="col-sm-5 col-xs-6 tital " >Reason for Staying:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="reason"> Hall Reunion</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Entering date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="from"> 01/04/2018</div>
+      <div class="col-sm-5 col-xs-6 tital " >Entering date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="from"> 01/04/2018</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-      <div class="col-sm-5 col-xs-6 tital " >Leaving date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="to"> 01/04/2018</div>
+      <div class="col-sm-5 col-xs-6 tital " >Leaving date:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="to"> 01/04/2018</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
-        <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6" style="color: #666666" name="gender">Female</div>
+        <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gender">Female</div>
        <div class="clearfix"></div>
         <div class="bot-border"></div>
 
@@ -109,8 +112,8 @@
 
 
     <div class="row" style="margin-top: 5% ; margin-left: 10%">
-      <div class="col-sm-5 col-xs-6  "  > <input type="submit" id="accpt"  name="accpt" value="Accept" class="btn btn-success btn-lg"  ></div>
-      <div class="col-sm-5 col-xs-6"><input type="submit" id="rjct" name="rjct" value="Reject" class="btn btn-danger btn-lg" ></div>
+      <div class="col-sm-5 col-xs-6  "  > <input id="accpt" onclick="approve(1)" name="accpt" value="Accept" class="btn btn-success btn-lg"  ></div>
+      <div class="col-sm-5 col-xs-6"><input  id="rjct" name="rjct" value="Reject" onclick="approve(0)" class="btn btn-danger btn-lg" ></div>
 
 
     </div>

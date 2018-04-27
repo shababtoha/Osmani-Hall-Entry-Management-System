@@ -5,13 +5,15 @@
     <title>Provost</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <script src="css/bootstrap.min.js"></script>
+   <!--  <script src="css/bootstrap.min.js"></script> -->
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="/Styles/provost.css">
-     <script type="text/javascript" src="/Script/logout.js" ></script>
+    <script type="text/javascript" src="/Script/logout.js" ></script>
+    <script type="text/javascript" src="/Script/provost.js"></script>
 
 </head>
 <body background="new6.jpg">
@@ -35,7 +37,7 @@
 <button class="button" id="entry"style="margin-top: 130px"><span>Entry List </span></button>
   <button class="button" id="black"><span>Black-list </span></button>
   <button class="button" id="report"><span>Report </span></button>
-  <button class="button" id="guestapp"><span>Guest Form Approval </span></button>
+  <a href="/guestlist"><button class="button" id="guestapp"><span>Guest Form Approval </span></button></a>
 
 </body>
 </html>

@@ -19,10 +19,11 @@ var color = {
 }
 
 function  make_list(obj){
-	
-	return '<td class="left">'+ obj.stdname+'</td>\
+	return '<tr>\
+	<td class="left">'+ obj.stdname+'</td>\
 						<td>'+obj.crse+'</td>\
 						<td>'+obj.stdid+'</td>\
 						<td>'+obj.level+'</td>\
-					  	<td '+color[obj.Status] +'><strong>'+obj.Status+'</strong></td>';
+					  	<td '+color[obj.Status] +'><strong>'+obj.Status+'</strong></td>\
+					  	</tr>';
 }

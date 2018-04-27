@@ -10,6 +10,7 @@ var session = require('express-session');
 var multer  = require('multer')
 var upload = multer({ dest : 'uploads/' })
 const fileUpload = require('express-fileupload');
+var socket = require('socket.io');
 
 var MAILSENDER = require("./sendMail");
 
@@ -205,6 +206,7 @@ app.post("/guestform",function(req,res){
 		"reason":"",
 		"from" : "",
 		"to" : "",
+		"gender" : "",
 	}
 	for(var key in obj){
 		if(req.body[""+key]===""){
@@ -234,6 +236,40 @@ app.post("/gueststatus",function(req,res){
 	});
 });
 
+
+app.post("/nextguest",function(req,res){
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection("guestform");
+		collection.find({"Status" : "Pending"}).toArray(function(err,documents){
+			//console.log(documents);
+			if(documents.length > 0)
+				io.sockets.emit("next",documents[0]);
+			else  io.sockets.emit("next","nai");
+			res.send("ok");
+		});
+	})
+});
+
+app.post("/chagegueststatus",function(req,res){
+		
+
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection("guestform");
+		var s;
+		if(req.body.status=="0") s= "Rejected";
+		else if(req.body.status=="1") s= "Approved";
+		collection.update( { _id : ObjectId(req.body.id) } , { $set : { "Status" : s } }, function(){
+			//console.log(arguments[0]);
+			collection.find({"Status" : "Pending"}).toArray(function(err,documents){
+				//console.log(documents);
+				if(documents.length > 0)
+					io.sockets.emit("next",documents[0]);
+				else io.sockets.emit("next","nai");
+				res.send("ok");
+			});
+		});
+	})
+})
 
 
 
@@ -369,6 +405,24 @@ app.get("/approvedguest",function(req,res){
 app.get("/contact",function(req,res){
 	res.sendFile(process.cwd()+"/Views/contact.html")
 })
-app.listen(8080,function(){
+var server = app.listen(8080,function(){
 	console.log('Port is listening');
+});
+
+app.get("/guestlist",function(req,res){
+	if(req.session.user==="dsw"){
+		res.sendFile(process.cwd()+"/Views/guestProfile.html");
+	}
+	else res.redirect("/login?auth=dsw");
+});
+
+
+
+var io = socket(server);
+io.on('connection', function(socket){
+	//console.log(socket);
+	console.log('made socket connection with '+socket.id);
+	socket.on('disconnect', function(){
+		console.log("disconnect "+socket.id);
+	});
 });
