@@ -15,7 +15,7 @@
 .tableDesign,th,td{
 		border : 2px solid black;
 		background:#e5f3f1  ;
-		//margin-left:300px;
+		/*//margin-left:300px;*/
 		border-collapse:collapse;
 		opacity:0.95;
 		margin:auto;
@@ -63,3 +63,4 @@
     color:#0645AD !important;
 
 }
+

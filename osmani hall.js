@@ -224,6 +224,17 @@ app.post("/guestform",function(req,res){
 
 });
 
+app.post("/gueststatus",function(req,res){
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection("guestform");
+		collection.find({},{ stdphn : false, grdnname : false, grdnmail : false,prsntaddr:false,reason : false,from:false,to : false,grdnphn : false}).toArray(function(err,documents){
+			console.log(documents);
+			res.send(documents);
+		});
+	});
+});
+
+
 
 
 // get baby get
