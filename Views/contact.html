@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Contact</title>
+
+  <script  src="/Script/jquery.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
+       
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+  <link rel="stylesheet" href="/Styles/contact.css">
+
+</head>
+
+<body background="bbb.jpg">
+
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/" id="entry" style="color: white">Entry List</a></li>
+         <li><a href="/guestform" id="cntct" style="color: white">Guest Form</a></li>
+        <li><a href="/approvedguest" id="cntct" style="color: white">Approved Guests</a></li>
+        <li><a class="right" href="/auth" id="login" style="color:white"><span class="glyphicon glyphicon-log-in" style="color:white"></span> Log In</a></li>
+    </ul>
+  
+
+
+    
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a href="#search" class="search-form-tigger btn btn-success"  data-toggle="search-form" style="background-color: white"><i class="fa fa-search" style="color:#00897b" aria-hidden="true"></i></a>
+         </div>
+     <div class="visible-xs navbar-form navbar-right" style="border-color:transparent;">
+            <input type="text" name="search" class="search form-control" placeholder="Search..." style="color: blue;">
+         </div>
+         <!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+  
+</nav>
+
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Search...">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon search-close" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
+</div>
+   
+
+  
+<div class="container" style="border:10px #00897b ; margin-top: 5%">
+  
+    
+
+      <img src="logo.png" style="width: 20% ; margin-left: 40%">
+
+      <h4 style = "text-align:center ; "><font size="6">Contacts</font></h4>
+
+      <h5 style = "text-align:center ;color:#00897b;margin-top: 10% "><font size = "4"> Hall Provost</font></h5>
+
+      <img src="provost.jpg" style="width:50%;height:50% ;margin-left: 25%;margin-top: 5% ; border-radius: 25%">
+      <div style="margin-left: 25% ; margin-top: 10% ; color :black ;">
+            <p>Brig Gen Md Khalil-Ur- Rahman</p>
+            <p class="fa fa-envelope-o"> dswsir.mist@gmail.com</p><br>
+            <p class="fa fa-phone"> 01769023940</p>
+     </div>
+
+
+
+     <h5 style = "text-align:center ;color:#00897b;margin-top: 10% "><font size = "4"> Hall Manager</font></h5>
+
+      
+      <div style="margin-left: 25% ; margin-top: 10% ; color :black ;">
+            <p>Ms. Hawa</p>
+            <p class="fa fa-envelope-o"> hallmanager.mist@gmail.com</p><br>
+            <p class="fa fa-phone"> 01713452134</p>
+     </div>
+
+    
+</div>
+
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $('[data-toggle=search-form]').click(function() {
+      $('.search-form-wrapper').toggleClass('open');
+      $('.search-form-wrapper .search').focus();
+      $('html').toggleClass('search-form-open');
+    });
+    $('[data-toggle=search-form-close]').click(function() {
+      $('.search-form-wrapper').removeClass('open');
+      $('html').removeClass('search-form-open');
+    });
+  $('.search-form-wrapper .search').keypress(function( event ) {
+    if($(this).val() == "Search") $(this).val("");
+  });
+
+  $('.search-close').click(function(event) {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+});
+</script>
+
+
+</body>
+
+</html>

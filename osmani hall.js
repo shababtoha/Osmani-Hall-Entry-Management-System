@@ -355,6 +355,9 @@ app.get("/approvedguest",function(req,res){
 	res.sendFile(process.cwd()+"/Views/approvedGuest.html")
 })
 
+app.get("/contact",function(req,res){
+	res.sendFile(process.cwd()+"/Views/contact.html")
+})
 app.listen(8080,function(){
 	console.log('Port is listening');
 });
