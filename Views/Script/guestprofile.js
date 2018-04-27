@@ -38,7 +38,11 @@ var id ;
 socket.on('next',function(guest){
 	//console.log(guest);
 	for(var key in obj){
-		$("#"+key).html( guest[key] );
+		if(guest!=="nai") $("#"+key).html( guest[key] );
+		else{
+			$("#"+key).html( "'" );
+			id="";
+		}
 	}
 	id = guest._id;
 	//console.log(id);
@@ -47,7 +51,6 @@ function approve(status){
 
 	$(".container").hide();
 	$("#loading").show();
-
 	$.ajax({
 		type : 'post',
 		url : '/chagegueststatus',
