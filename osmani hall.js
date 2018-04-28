@@ -220,7 +220,7 @@ app.post("/guestform",function(req,res){
 	mongo.connect(mongourl,function(err,db){
 		var collection = db.collection("guestform");
 		collection.insert( obj, function(err,data){
-			res.redirect("/guestlists");
+			res.redirect("/approvedguest");
 		});
 	});
 
