@@ -416,6 +416,10 @@ app.get("/guestlist",function(req,res){
 	else res.redirect("/login?auth=dsw");
 });
 
+app.get("/studentprofile",function(req,res){
+	res.sendFile(process.cwd()+"/Views/studentProfile.html")
+})
+
 
 
 var io = socket(server);

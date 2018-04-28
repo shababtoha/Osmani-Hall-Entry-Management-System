@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Student Profile</title>
+
+  <script  src="/Script/jquery.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
+       
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <link rel="stylesheet" href="/Styles/studentProfile.css">
+
+</head>
+
+<body>
+
+
+
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/" id="entry" style="color: white">Entry List</a></li>
+       <li><a  href="/guestform" id="apprvd" style="color: white">Guest Form</a></li>
+        <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
+    </ul>
+  
+
+
+    
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a href="#search" class="search-form-tigger btn btn-success"  data-toggle="search-form" style="background-color: white"><i class="fa fa-search" style="color:#00897b" aria-hidden="true"></i></a>
+         </div>
+     <div class="visible-xs navbar-form navbar-right" style="border-color:transparent;">
+            <input type="text" name="search" class="search form-control" placeholder="Search..." style="color: blue;">
+         </div>
+         <!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+  
+</nav>
+
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Search...">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon search-close" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
+</div>
+  
+<div class="container" style=" margin-top: 5% ; margin-bottom: 10%">
+    <div class="row" >
+
+      <img src="logo.png" style="width: 20% ; margin-left: 40%">
+
+      <h4 style = "text-align:center ;margin-bottom: 15% "><font size="6">Student Profile</font></h4>
+      <img src = pp.jpg style="margin-left: 32% ;margin-top: -5% ; margin-bottom: 10%">
+    </div>
+
+      <div class="row" >
+      <div class="col-sm-5 col-xs-6 tital " >Student's Name:</div><div class="col-sm-7 col-xs-6 " name="stdname" id="stdname" style="color: #666666">Sumaiya Afroz Mila</div>
+      <div class="clearfix"></div>
+      <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Student's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="stdphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Father's Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="fatname"> blabla</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Father's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="fatmail"> blabla@gmail.com</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Father's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="fatphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+
+
+        <div class="col-sm-5 col-xs-6 tital " >Mother's Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="motname"> blabla</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Mother's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="motmail"> blabla@gmail.com</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Mother's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="motphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      
+
+     <div class="col-sm-5 col-xs-6 tital " >Present Address:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="prsntaddr"> dhaka</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Permanent Address:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="pmntaddr"> dhaka</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Course Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="crse"> cse-15</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+
+      <div class="col-sm-5 col-xs-6 tital " >Student ID:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="stdid"> 201514015</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Registrtion Number:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="regno"> 201514015</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Academic Year:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="acyear"> 2014-15</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Level:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="level"> 2</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <!-- <div class="input-group input-group-icon" style="width: 100%;color:   #424949">
+             <input type="number" placeholder="Academic Year"  name="acyear" required id="acyear">
+        <div class="input-icon"><i class="fa fa-calendar " style="color: #00897b"></i></div>
+      </div> -->
+
+
+        <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gender">Female</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Hall:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="hall">Osmani hall</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+         <div class="col-sm-5 col-xs-6 tital " >Room number:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="room">501</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+
+        <div class="col-sm-5 col-xs-6 tital " >Local Guardians Name:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gdname"> blabla</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Local Guardian's Email:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gdmail"> blabla@gmail.com</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+      <div class="col-sm-5 col-xs-6 tital " >Guardian's Phone:</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gdphn"> 01711111111</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+        <div class="col-sm-5 col-xs-6 tital " >Local Guardian's Address</div><div class="col-sm-7 col-xs-6" style="color: #666666" id="gdaddr"> dhaka cant.</div>
+       <div class="clearfix"></div>
+        <div class="bot-border"></div>
+
+    </div>
+
+
+
+    <div class="row" style="margin-top: 5% ; margin-left: 30%">
+       <input id="accpt" style="width:60% ; margin-top: 5% ;"  name="accpt" value="Edit" class="btn btn-success btn-lg"  >
+
+      <input  id="rjct"  style="width:60% ; margin-top: 5% ;" name="rjct" value="Delete"  class="btn btn-danger btn-lg" >
+      
+    </div>
+</div>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $('[data-toggle=search-form]').click(function() {
+      $('.search-form-wrapper').toggleClass('open');
+      $('.search-form-wrapper .search').focus();
+      $('html').toggleClass('search-form-open');
+    });
+    $('[data-toggle=search-form-close]').click(function() {
+      $('.search-form-wrapper').removeClass('open');
+      $('html').removeClass('search-form-open');
+    });
+  $('.search-form-wrapper .search').keypress(function( event ) {
+    if($(this).val() == "Search") $(this).val("");
+  });
+
+  $('.search-close').click(function(event) {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+});
+</script>
+
+</body>
+
+</html>
