@@ -2,14 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Manager</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+              <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <script src="/Script/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/Styles/provost.css">
     <script type="text/javascript" src="/Script/logout.js" ></script>
@@ -18,30 +27,81 @@
 <body background="new6.jpg">
 
 
-<div class="topnav" id="top-menu">
-  <!-- <img src="logo.png" class= "pic" alt=""  style="margin-top: 1% ; margin-left:5%; " height="60" width="63" > -->
-    <ul>
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
+        <li><a href="/application" style="color: white"> Add New Stuednts </a></li>
+        <li><a href="#" onclick="logout()" id="logout" class="float-right fa fa-power-off" style="color: white;"></a></li>
 
-      <li><a href="/" id="home">Home</a></li>
-       <!-- <li><a href="/gform" id="gst">Guest Form</a></li> -->
-       <li><a href="/contact" id="cntct">Contact</a></li>
-       <li><a href="/application"> Add New Stuednts </a></li>
 
-       <li><a href="#" onclick="logout()" id="logout" class="right fa fa-power-off" style="color: white;"></a></li>
-       <li><input href="#" class="right search" data-toggle="dropdown" placeholder="Enter Student ID" ></input></li>
+         
+    </ul>
+  
 
-       
-     </ul>
 
+    
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a href="#search" class="search-form-tigger btn btn-success"  data-toggle="search-form" style="background-color: white"><i class="fa fa-search" style="color:#00897b" aria-hidden="true"></i></a>
+         </div>
+     <div class="visible-xs navbar-form navbar-right" style="border-color:transparent;">
+            <input type="text" name="search" class="search form-control" placeholder="Search..." style="color: blue;">
+         </div>
+         <!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+  
+</nav>
+
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Search...">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon search-close" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
 </div>
 
-
+<div class="w3-display-container">
+  <div class="w3-display-topmiddle">
 <!-- <button class="button" id="entry"style="margin-top: 130px"><span>Entry List </span></button> -->
   <a href="/residentstudent"><button class="button" id="resident" style="margin-top: 120px"><span>Resident Student </span></button></a>
   <button class="button" id="black"><span>Black-list </span></button>
   <button class="button" id="report"><span>Report </span></button>
-  <button class="button" id="validguest"><span>Approved Guest Forms</span></button>
+  <button class="button" id="validguest"><span>Approved Guests</span></button>
+</div>
+</div>
 
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $('[data-toggle=search-form]').click(function() {
+      $('.search-form-wrapper').toggleClass('open');
+      $('.search-form-wrapper .search').focus();
+      $('html').toggleClass('search-form-open');
+    });
+    $('[data-toggle=search-form-close]').click(function() {
+      $('.search-form-wrapper').removeClass('open');
+      $('html').removeClass('search-form-open');
+    });
+  $('.search-form-wrapper .search').keypress(function( event ) {
+    if($(this).val() == "Search") $(this).val("");
+  });
+
+  $('.search-close').click(function(event) {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+});
+</script>
 </body>
 </html>
 

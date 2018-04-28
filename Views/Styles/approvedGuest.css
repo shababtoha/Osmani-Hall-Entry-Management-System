@@ -64,3 +64,14 @@
 
 }
 
+
+@media screen and (max-width: 800px) {
+    #navbar{
+      border-color: #00897b;
+        float:none;
+        display: block;
+    }
+   
+
+   
+}

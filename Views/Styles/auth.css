@@ -1,22 +1,10 @@
-   body{
-    
-   }
-    .search-form-wrapper {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    padding: 20px 15px;
-    margin-top: -2%;
-    //background: url(/resources/images/misc/bg_search-open.png) right center no-repeat #f89d1c;
-}
-.search-form-wrapper.open {
-    display: block;
+body{
+    background-image: url("bbb.jpg");
+        background-size: cover;
+        background-attachment: fixed;
 }
 
-    
-     
-.button {
+     .button {
   border-radius: 10px;
   background-color: #00897b;/*#f4511e;*/
   border: none;
@@ -24,13 +12,10 @@
   text-align: center;
   font-size: 28px;
   padding: 20px;
-  /*width: 350px;*/
+  width: 350px;
   transition: all 0.5s;
   cursor: pointer;
-  /*margin: 10px 480px;*/
-  margin-top: 5%;
-  width: 85%;
-  margin-left: 5%;
+  margin: 10px 480px;
  }
 
 .button span {
@@ -70,6 +55,21 @@
 
 
 
+    .search-form-wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 20px 15px;
+    margin-top: -2%;
+    //background: url(/resources/images/misc/bg_search-open.png) right center no-repeat #f89d1c;
+}
+.search-form-wrapper.open {
+    display: block;
+}
+
+ 
+
 .container-fluid ul li a:hover{
    // background: black;
     color:#0645AD !important;
@@ -88,3 +88,15 @@
   height: 100px;
   text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+    #navbar{
+      border-color: #00897b;
+        float:none;
+        display: block;
+    }
+   
+
+   
+}
+
