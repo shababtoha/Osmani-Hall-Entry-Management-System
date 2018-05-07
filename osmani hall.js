@@ -417,7 +417,9 @@ app.get("/guestlist",function(req,res){
 });
 
 app.get("/studentprofile",function(req,res){
-	res.sendFile(process.cwd()+"/Views/studentProfile.html")
+	if(req.session.user==="dsw" || req.session.user==="manager")
+		res.sendFile(process.cwd()+"/Views/studentProfile.html");
+	else res.send("File Dewa Jabe na");
 })
 
 
