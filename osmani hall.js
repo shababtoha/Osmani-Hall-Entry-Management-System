@@ -87,7 +87,7 @@ app.post('/students',function(req,res){
 	
   	var myfile = req.files.profile_photo;
   	var type = req.files.profile_photo.mimetype.split("/")[1];
-	myfile.mv(process.cwd()+'/uploads/'+req.body.stdid+'.'+type, function(err) {
+	myfile.mv(process.cwd()+'/Views/uploads/'+req.body.stdid+'.'+type, function(err) {
     	if(err) console.log("upload e error");
   	});
 

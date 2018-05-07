@@ -348,6 +348,7 @@ select option {
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
+  overflow: hidden;;
 }
 
 .remove-image:hover {
