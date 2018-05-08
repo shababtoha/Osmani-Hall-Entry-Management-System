@@ -2,18 +2,35 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <title>Table</title>
 
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/Script/bootstrap.min.js"></script>
-	
-    <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+    <script  src="/Script/jquery.min.js"></script>
+  
+       
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+<!-- <link rel="stylesheet" href="toggled-search-bar.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
+
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="/Script/table.js"></script>
 	<link href="/Styles/table.css" rel="stylesheet"/>
+
 	 <script type="text/javascript" src="/Script/logout.js" ></script>
 </head>
 
@@ -24,19 +41,47 @@
 	
 	
 	
-	<div class="topnav" id="top-menu">
-  <!-- <img src="logo.png" class= "pic" alt=""  style="margin-top: 1% ; margin-left:5%; " height="60" width="63" > -->
-    <ul>
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
+          <li><a href="#" onclick="logout()" id="logout" class="float-right fa fa-power-off" style="color: white;"></a></li>
+         
+    </ul>
+  
 
-       <li><a  href="/" id="entry" style="text-decoration: none !important; ">Home</a></li>
-       <li><a href="/application" id="login" style="text-decoration: none;">Add Student</a></li>
-      
-       <li> <a href="#" onclick="logout()" id="logout" class="right fa fa-power-off" style="color: white;"></a></li>
-      
-     </ul>
 
+    
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a href="#search" class="search-form-tigger btn btn-success"  data-toggle="search-form" style="background-color: white"><i class="fa fa-search" style="color:#00897b" aria-hidden="true"></i></a>
+         </div>
+     <div class="visible-xs navbar-form navbar-right" style="border-color:transparent;">
+            <input type="text" name="search" class="search form-control" placeholder="Search..." style="color: blue;">
+         </div>
+         <!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+  
+</nav>
+
+
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Search">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon search-close" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
 </div>
-
+   
 
 
 	
@@ -75,7 +120,7 @@
 					<td>601</td>
 					<td class="left">female</td>
 					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
+					<td><button type="button" class="btn btn-primary" style="width:100% ; background:#00897b  ; color:white;" id="edt">Edit</button></td>
 
 				</tr>
 				
@@ -109,89 +154,7 @@
 					<td>01712345678</td>
 					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
 				</tr>
-				<tr>
-					<td class="left">keya</td>
-					<td>eee</td>
-					<td>4</td>
-					<td>51</td>
-					<td>501</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
-				</tr>
-				<tr>
-					<td class="left">keya</td>
-					<td>eee</td>
-					<td>4</td>
-					<td>51</td>
-					<td>501</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
-				</tr>
-				<tr>
-					<td class="left">keya</td>
-					<td>eee</td>
-					<td>4</td>
-					<td>51</td>
-					<td>501</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
-				</tr>
-				<tr>
-					<td class="left">keya</td>
-					<td>eee</td>
-					<td>4</td>
-					<td>51</td>
-					<td>501</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
-				</tr>
-				<tr>
-					<td class="left">keya</td>
-					<td>eee</td>
-					<td>4</td>
-					<td>51</td>
-					<td>501</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
-				</tr>
-				<tr>
-					<td class="left">mila</td>
-					<td>cse</td>
-					<td>4</td>
-					<td>21</td>
-					<td>601</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
-
-				</tr>
-				<tr>
-					<td class="left">mila</td>
-					<td>cse</td>
-					<td>4</td>
-					<td>21</td>
-					<td>601</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black  ; color:white;" id="edt">Edit</button></td>
-
-				</tr>
-				<tr>
-					<td class="left">mila</td>
-					<td>cse</td>
-					<td>4</td>
-					<td>21</td>
-					<td>601</td>
-					<td class="left">female</td>
-					<td>01712345678</td>
-					<td><button type="button" class="btn btn-primary" style="width:100% ; background:black ; color:white;" id="edt">Edit</button></td>
-
-				</tr>
+			
 				<tr>
 					<td class="left">mila</td>
 					<td>cse</td>
@@ -207,5 +170,30 @@
 		</table>
 	
 </div>
+
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $('[data-toggle=search-form]').click(function() {
+      $('.search-form-wrapper').toggleClass('open');
+      $('.search-form-wrapper .search').focus();
+      $('html').toggleClass('search-form-open');
+    });
+    $('[data-toggle=search-form-close]').click(function() {
+      $('.search-form-wrapper').removeClass('open');
+      $('html').removeClass('search-form-open');
+    });
+  $('.search-form-wrapper .search').keypress(function( event ) {
+    if($(this).val() == "Search") $(this).val("");
+  });
+
+  $('.search-close').click(function(event) {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+});
+</script>
+
 </body>
 </html>
