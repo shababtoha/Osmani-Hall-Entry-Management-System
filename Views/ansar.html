@@ -6,9 +6,9 @@
 
     <title>Ansar</title>
 
-    <script src="css/bootstrap.min.js"></script>
+   <!--  <script src="css/bootstrap.min.js"></script>
       <script src="/Script/bootstrap.min.js"></script>
-
+ -->
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
@@ -25,8 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/Styles/ansar.css">
      <script type="text/javascript" src="/Script/logout.js" ></script>
 
+     <script src="/Script/toast.js"></script> 
+  <link rel="stylesheet" href="/Styles/toast.css">
+
 </head>
-<body background="bbb.jpg">
+<body background="bbb.jpg" style="background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
 
 
 <nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
@@ -71,15 +74,50 @@
 
 
 
-  <form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
+
+
+<div class="example"  style="margin:auto;max-width:500px">
   <input type="text" placeholder="Enter Student ID" id="an-entry">
-  <button type="submit" id="newentry"><i class="fa fa-chevron-circle-right"></i></button>
-</form>
+  <button type="" id="newentry"><i class="fa fa-chevron-circle-right"></i></button>
+</div>
+
+
+<div class="w3-container" id="load">
+
+  <div class="w3-display-middle">
+  <div class="loader"></div>
+  </div>
+
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 id="name" style="text-align: center;"></h2>
+    </div>
+    <div class="modal-body" style="text-align: center;">
+      <p class="big"> Current Status : <span id="in-out">IN</span> </p>
+      <p class="big"> <span id="btnsts"> Exit </span> Date : <span id="date">1/1/11 2:11</span>  <span id="hehe"> &nbsp; Exit</span>  Time : <span id="time">12:30 </span></p>
+
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" onclick="confirm()"  style="margin-right: 43%;"> Confirm <span id="btnsts">Exit</span></button>
+    </div>
+
+  </div>
+
+</div>
+
+
 
 <div class="w3-display-container">
   <div class="w3-display-topmiddle">
   <button class="button" id="entry" ><span>Entry List</span></button>
-  <button class="button" id="gg"><span>Guest </span></button><!--ekhane kibhabe dekhbe-->
+  <button class="button" id="gg"><span> Guest </span></button><!--ekhane kibhabe dekhbe-->
 
 </div>
 </div>
@@ -105,6 +143,260 @@
   });
 });
 </script>
+
+
+
+<script>
+$(document).ready(function(){
+  $("#load").hide();
+});
+
+
+var todaydate ;
+var now;
+var nowobj;
+function call(){
+  today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+
+  var yyyy = today.getFullYear();
+  if(dd<10){
+    dd='0'+dd;
+  } 
+  if(mm<10){
+      mm='0'+mm;
+  } 
+   todaydate = dd+'/'+mm+'/'+yyyy;
+
+   var hrs = today.getHours();
+   var mnt = today.getMinutes();
+   if(hrs < 10) hrs = '0'+hrs;
+   if(mnt<10) mnt= '0'+mnt;
+
+   now = hrs + ":"  + mnt;
+   //console.log(todaydate + " : " + now );
+
+
+};
+
+function confirm(){
+    var id  = $("#an-entry").val();
+    var status;
+    
+    if(nowobj.status=="IN"){
+      status = "EXIT";
+    }
+    else{
+        status = "IN";
+    }
+
+    $.ajax({
+        type : 'post',
+        url  : '/inoutsave',
+        data : { "id" : id , "status" : status },
+        success : function(data){
+            if(data == "OK"){
+                $.toast({
+                  heading: 'Success',
+                  text: ''+status+" Confirmed",
+                  showHideTransition: 'slide',
+                  icon: 'success',
+              });            
+            }
+            modal.style.display = "none";
+        }
+    });
+}
+
+// Get the modal
+var modal = document.getElementById('myModal');
+// var exitbtn = document.getElementById("btnexit");
+
+
+// Get the button that opens the modal
+var btn = document.getElementById("newentry");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+
+    var id  = $("#an-entry").val();
+    if(id==="") return;
+
+    call();
+
+     $("#load").hide();
+
+    $.ajax({
+          type : 'post',
+          url   : '/inoutstatus',
+          data  : { 'id' : id},
+          success : function(data){
+           // console.log(data);
+            nowobj = data;
+            $("#name").html(data.name);
+            $("#in-out").html(data.status);
+            $("#date").html(todaydate);
+            $("#time").html(now);
+            if(data.status=='IN'){
+              $("#btnsts").html("Exit");
+              $("#hehe").html("Exit");
+            }
+            else{
+              $("#btnsts").html("IN");
+              $("#hehe").html("IN");
+            }
+             $("#load").hide();
+              
+          }
+    });
+
+    modal.style.display = "block";
+   
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        
+        modal.style.display = "none";
+    }
+}
+
+
+
+
+</script>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.big{
+  font-size: 20px;
+  /*color:#00897b;*/
+}
+.modal {
+   /* margin-top: 20%;*/
+    display: none; /* Hidden by default */
+   /* position: fixed;*/ /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+   /* height: 300px;*/ /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+
+    margin-top: 16%;
+    position: fixed;
+    /*bottom: 0;*/
+    margin-left: 20%;
+    background-color: #fefefe;
+    width: 60%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+   /**/
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #00897b;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px; margin-bottom: 5% ;margin-top: 5%}
+
+.modal-footer {
+   /* padding: 2px 16px;*/
+    background-color: #00897b;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {top: : -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+</style>
+
+
+<style>
+
+#load{
+  z-index: 100;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 
 
 </body>

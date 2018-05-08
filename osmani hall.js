@@ -81,12 +81,14 @@ app.post('/students',function(req,res){
   			res.redirect('/application?insert=false');
   			return;
   		}
+  		obj[key] = req.body[key];
   	}
 
 
 	
   	var myfile = req.files.profile_photo;
   	var type = req.files.profile_photo.mimetype.split("/")[1];
+  	obj["type"] = "."+type;
 	myfile.mv(process.cwd()+'/Views/uploads/'+req.body.stdid+'.'+type, function(err) {
     	if(err) console.log("upload e error");
   	});
@@ -99,7 +101,7 @@ app.post('/students',function(req,res){
   	}
   	mongo.connect(mongourl,function(err,db){
   		var collection  = db.collection('students');
-  		collection.insert( req.body, function(err,data){
+  		collection.insert(obj, function(err,data){
   			if(err){
   				res.redirect('/application?insert=false');
   			}
@@ -271,6 +273,61 @@ app.post("/chagegueststatus",function(req,res){
 	})
 })
 
+app.post("/getstudent",function(req,res){
+	if(req.session.user ==="manager" || req.session.user==="dsw"){
+
+		if(!req.body.id){
+			res.send("Not Found");
+			return;
+		}
+		mongo.connect(mongourl,function(err,db){
+			var collection = db.collection("students");
+			collection.find( { _id : ObjectId(req.body.id)} ).toArray(function(err,documents){
+				if(documents.length!=1){
+					res.send("error");
+					return;
+				}
+				res.send(documents[0]);
+			});
+		})
+		
+	}
+	else res.send("Not uthorized");
+});
+
+
+app.post("/inoutstatus",function(req,res){
+	if(!req.body.id){
+		res.send("nai");
+		return;
+	}
+
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection("inoutregister");
+		collection.find( { "stdid" : req.body.id}).toArray(function(err,documents){
+			if(documents.length != 1){
+				res.send("nai");
+				return;
+			}
+			res.send(documents[0]);
+		});
+	});
+
+});
+
+app.post("/inoutsave",function(req,res){
+	if(!req.body.id  || !req.body.status){
+		res.send("nai");
+		return;
+	}
+
+	mongo.connect(mongourl,function(err,db){
+		var collection  = db.collection("inoutregister");
+		collection.update( {stdid : req.body.id},{ $set : { "status" : req.body.status } } ,function(){
+			res.send("OK");
+		});
+	});
+});
 
 
 // get baby get
