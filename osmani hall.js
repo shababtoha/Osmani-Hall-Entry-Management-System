@@ -329,6 +329,55 @@ app.post("/inoutsave",function(req,res){
 	});
 });
 
+app.post("/updateprofile",function(req,res){
+	
+
+
+	if(req.session.user!="manager"){
+		res.send("yeah?");
+		return;
+	}
+	var obj = { stdname: '',
+  				stdphn: '',
+  				fatname: '',
+  				fatmail: '',
+  				fatphn: '',
+  				motname: '',
+  				motmail: '',
+  				motphn: '',
+  				prsntaddr: '',
+  				pmntaddr: '',
+  				crse: '',
+  				stdid: '',
+  				regno: '',
+  				acyear: '',
+  				level: '',
+  				gender: '',
+  				hall: '',
+  				gdname: '',
+  				gdmail: '',
+  				gdphn: '',
+  				gdaddr: '',
+  				room : '',
+ 	}
+ 	console.log(req.body);
+ 	for(var key in obj){
+  		if(req.body[key]=="" || !req.body[key]){
+  			res.send("err");
+  			return;
+  		}
+  		obj[key] = req.body[key];
+  	}
+  	mongo.connect(mongourl,function(err,db){
+  		var  collection = db.collection('students');
+  		collection.update( { _id : ObjectId(req.body.id) }, obj, {upsert : true }, function(){
+  			res.send("OK");
+  		});
+  	});
+
+
+});
+
 
 // get baby get
 
