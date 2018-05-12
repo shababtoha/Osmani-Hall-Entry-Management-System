@@ -13,6 +13,7 @@ const fileUpload = require('express-fileupload');
 var socket = require('socket.io');
 
 var MAILSENDER = require("./sendMail");
+var inoutregister = require('./inoutregister');
 
 
 
@@ -316,17 +317,49 @@ app.post("/inoutstatus",function(req,res){
 });
 
 app.post("/inoutsave",function(req,res){
-	if(!req.body.id  || !req.body.status){
+	//console.log(req.body);
+
+	if(!req.body.id  || !req.body.status || !req.body.time || !req.body.night || !req.body.date ){
 		res.send("nai");
 		return;
 	}
 
 	mongo.connect(mongourl,function(err,db){
-		var collection  = db.collection("inoutregister");
-		collection.update( {stdid : req.body.id},{ $set : { "status" : req.body.status } } ,function(){
-			res.send("OK");
+		var collection = db.collection('inoutregister');
+		collection.find({ stdid : req.body.id}).toArray(function(errr,documents){
+			if(errr ||  documents.length!=1){
+				res.send("nai");
+				return;
+			}
+
+
+			if(req.body.status==='IN'){
+				inoutregister.IN(req.body.id, req.body.date,req.body.time,documents[0].return ,res);
+			}
+			else if(req.body.status==='EXIT'){
+				if(req.body.night==='false'){
+					inoutregister.OUT(req.body.id, req.body.date,req.body.time,res);
+				}
+				else if(req.body.night==="true"){
+					inoutregister.NIGHTSTAY(req.body.id, req.body.date,req.body.time,req.body.return,res);
+				}
+				else res.send("err");
+			}	
+			else{
+				res.send("err");
+			}
 		});
 	});
+
+
+	
+
+	// mongo.connect(mongourl,function(err,db){
+	// 	var collection  = db.collection("inoutregister");
+	// 	collection.update( {stdid : req.body.id},{ $set : { "status" : req.body.status } } ,function(){
+	// 		res.send("OK");
+	// 	});
+	// });
 });
 
 app.post("/updateprofile",function(req,res){

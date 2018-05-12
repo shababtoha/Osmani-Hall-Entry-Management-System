@@ -102,13 +102,16 @@
       <p class="big"> Current Status : <span id="in-out">IN</span> </p>
       <p class="big"> <span id="btnsts"> Exit </span> Date : <span id="date">1/1/11 2:11</span>  <span id="hehe"> &nbsp; Exit</span>  Time : <span id="time">12:30 </span></p>
 
-      <input type="checkbox" name="nightstay" value="nightstay">  <font size="4">NightStay</font><br>
-      Approximate Return Date: <input type="date" name="return">
-
+      <div id="iamin">
+      <input  style="margin-top: 2%" id="cbox" type="checkbox"  name="nightstay" value="nightstay">  <font size="4">NightStay</font><br>
+      <div id="night" style="margin-top: 2%">
+        Approximate Return Date: <input type="date" name="return" id="ret">
+      </div>
+      </div>
 
     </div>
     <div class="modal-footer">
-      <button class="btn btn-success" onclick="confirm()"  style="margin-right: 43%;"> Confirm <span id="btnsts">Exit</span></button>
+      <button class="btn btn-success" onclick="confirm()"  style="margin-right: 43%;"> Confirm <span id="bbtnsts">Exit</span></button>
     </div>
 
   </div>
@@ -152,12 +155,15 @@
 <script>
 $(document).ready(function(){
   $("#load").hide();
+  $("#night").hide();
+  $("#iamin").hide();
 });
 
 
 var todaydate ;
 var now;
 var nowobj;
+var isChecked = false;
 function call(){
   today = new Date();
   var dd = today.getDate();
@@ -193,11 +199,13 @@ function confirm(){
     else{
         status = "IN";
     }
+    var returndate = $("#ret").val().split("-").reverse().join('/');
+    console.log(returndate)
 
     $.ajax({
         type : 'post',
         url  : '/inoutsave',
-        data : { "id" : id , "status" : status },
+        data : { "id" : id , "status" : status, 'night' : isChecked, 'return' : returndate, 'date' : todaydate , 'time' : now },
         success : function(data){
             if(data == "OK"){
                 $.toast({
@@ -231,7 +239,11 @@ btn.onclick = function() {
 
     call();
 
-     $("#load").hide();
+    $("#load").hide();
+    $("#name").html('<i class="fa fa-spinner fa-spin fa-2x"></a>');
+    $("#iamin").hide();
+    
+    
 
     $.ajax({
           type : 'post',
@@ -247,13 +259,20 @@ btn.onclick = function() {
             if(data.status=='IN'){
               $("#btnsts").html("Exit");
               $("#hehe").html("Exit");
+              $("#iamin").show();
+              $("#bbtnsts").html("Exit");
             }
             else{
               $("#btnsts").html("IN");
               $("#hehe").html("IN");
+              $("#bbtnsts").html("IN");
+            
             }
-             $("#load").hide();
-              
+            $("#load").hide();
+            $("#cbox").prop('checked',false);
+            $("#night").hide();
+            isChecked = false;  
+
           }
     });
 
@@ -275,7 +294,16 @@ window.onclick = function(event) {
 }
 
 
-
+  $("#cbox").change(function(){
+        if(this.checked) {
+            $("#night").show();
+            isChecked = true;
+        }
+        else{
+            $("#night").hide();
+            isChecked = false;
+        }
+  });
 
 </script>
 
