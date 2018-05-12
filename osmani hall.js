@@ -378,6 +378,30 @@ app.post("/updateprofile",function(req,res){
 
 });
 
+app.post("/deletestudent",function(req,res){
+	if(!req.body.id){
+		res.send("err");
+		return;
+	}
+	if(req.session.user!="manager"){
+		res.send("err");
+		return;
+	}
+	console.log(req.body.id);
+	mongo.connect(mongourl,function(err,db){
+		if(err){
+			res.send("err");
+			return;
+		}
+		var collection = db.collection('students');
+		collection.remove({ _id : ObjectId(req.body.id)} , function(){
+			res.send("ok");
+			return;
+		});
+	})
+
+});
+
 
 // get baby get
 

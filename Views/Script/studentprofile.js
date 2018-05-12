@@ -78,7 +78,29 @@ function make_g(){
        </select>';
 
 }
+
+function remove(){
+  if(!_id) return;
+  $.ajax({
+      type : 'post',
+      url  : '/deletestudent',
+      data : { 'id' : _id },
+      success : function(data){
+        console.log(data);
+        if(data == "ok"){
+          window.location.href = "/residentstudent"; 
+        }
+        else{
+          alert("An Error Occured");
+        }
+      }
+  });
+
+}
+
+
 function save(){
+    if(!_id) return;
     for(var key in obj){
       obj[key] = $("#new"+key).val();
     }
