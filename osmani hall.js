@@ -585,7 +585,17 @@ app.get("/studentprofile",function(req,res){
 	else res.send("File Dewa Jabe na");
 })
 
+app.get("/entrylist",function(req,res){
+	res.sendFile(process.cwd() + '/Views/mergeTable.html');
+});
 
+app.get("/blacklist",function(req,res){
+	res.sendFile(process.cwd() + '/Views/blacklist.html');
+});
+
+app.get("/report",function(req,res){
+	res.sendFile(process.cwd() + '/Views/report.html');
+});
 
 var io = socket(server);
 io.on('connection', function(socket){
