@@ -68,11 +68,8 @@ function late(id){
 	console.log('late');
 	mongo.connect(mongourl,function(err,db){
 		var collection = db.collection('lates');
-		collection.find( { 'id' : id }).toArray(function(err,documents){
-			var x =  Number(documents[0].count)+1;
-			collection.update({ 'id' : id },{$set : { 'count' : x }  },function(){
-				
-			});
+		collection.update( { 'id' : id }, { $inc : { 'count' : 1 } },function(){
+			
 		});
 	})
 }
