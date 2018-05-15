@@ -199,9 +199,20 @@ function confirm(){
     else{
         status = "IN";
     }
+    var rr =$("#ret").val();
     var returndate = $("#ret").val().split("-").reverse().join('/');
-    console.log(returndate)
+   // console.log(returndate)
+    //console.log(Date.parse(rr) , Date.now());
+    
+    if(Date.now() > Date.parse(rr)){
+      alert("Please Enter A Valid Date");
+      return;
+    }
 
+    if(isChecked===true && !returndate){
+      alert("Please Enter A Valid Date");
+      return;
+    }
     $.ajax({
         type : 'post',
         url  : '/inoutsave',
