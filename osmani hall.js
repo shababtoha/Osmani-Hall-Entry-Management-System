@@ -100,14 +100,42 @@ app.post('/students',function(req,res){
   		res.send("ERROR");
   		return;
   	}
+
   	mongo.connect(mongourl,function(err,db){
-  		var collection  = db.collection('students');
-  		collection.insert(obj, function(err,data){
+  		var collection = db.collection("students");
+  		collection.find( { "stdid" : obj.stdid } ).toArray(function(err,documents){
   			if(err){
   				res.redirect('/application?insert=false');
   			}
-  			res.redirect('application?insert=true');
+  			else if(documents.length  ==  0){
+  				collection.insert(obj, function(err,data){
+  					if(err){
+  						res.redirect('/application?insert=false');
+  					}
+  					else res.redirect('application?insert=true');
+  				});
+
+  				var col = db.collection('lates');
+  				col.insert( { 'id' : obj.stdid , 'count' : 0 },function(){
+
+  				});
+  				col = db.collection('inoutregister');
+  				col.insert( {  "status": "EXIT","name": obj.stdname,"stdid": obj.stdid,"time": "","date": "01/01/2040","night": "","return" : "31/12/2040" },function(){
+
+  				});
+
+
+  			}
+  			else{
+  				res.redirect('/application?insert=false');
+  			}
   		});
+  	});
+
+
+  	mongo.connect(mongourl,function(err,db){
+  		var collection  = db.collection('students');
+  		
   	});
 
 });
@@ -436,7 +464,70 @@ app.post("/deletestudent",function(req,res){
 });
 
 
-// get baby get
+app.post("/entry",function(req,res){
+	 mongo.connect(mongourl,function(err,db){
+	 	var collection = db.collection('inoutregister');
+	 	console.log("here");
+	 	if(err) console.log(err);
+	 	collection.find( { 'status' : 'EXIT' } ).toArray(function(err,documents){
+	 		var ids = [];
+	 		var obj= {};
+	 		for(var i = 0 ; i<documents.length;i++){
+	 			ids.push(documents[i].stdid);
+	 			obj[ documents[i].stdid] = { "stdid" : documents[i].stdid, "return" : documents[i].return , "time" : documents[i].time, "date" : documents[i].date, "name" : documents[i].name };
+	 		}
+	 		console.log(ids);
+	 		var col = db.collection('students');
+	 		col.find( { stdid : { $in : ids } } ).toArray(function(err,docs){
+	 			for(var i = 0 ; i<docs.length;i++){
+	 				obj[ docs[i].stdid ]["crse"] = docs[i].crse;
+	 				obj[ docs[i].stdid ]["level"] = docs[i].level;
+	 				obj[ docs[i].stdid ]["room"] = docs[i].room;
+	 				obj[ docs[i].stdid ]["hall"] = docs[i].hall;
+	 				obj[ docs[i].stdid ]["gender"] = docs[i].gender;
+	 			}
+	 			res.send(obj);
+	 		});
+
+
+	 	});
+	 });
+});
+
+
+app.post("/getblacklist",function(req,res){
+	if(req.session.user === "manager" || req.session.user === "dsw"){
+		mongo.connect(mongourl,function(err,db){
+			var collection = db.collection("students");
+			collection.find({}).toArray(function(err,documents){
+				var data = {};
+				for(var i = 0 ; i<documents.length ;i++){
+					data[ documents[i].stdid ] = { "stdid" : documents[i].stdid, "crse" : documents[i].crse , "name" : documents[i].stdname,"room" : documents[i].room, "hall" : documents[i].hall, "gender" : documents[i].gender , "contact" : documents[i].fatphn,'level': documents[i].level, '_id' : documents[i]._id  }
+				}
+				var col = db.collection('lates');
+				col.find({}).toArray(function(err,doc){
+					for(var i = 0 ; i<doc.length ;i++){
+						if(data.hasOwnProperty(doc[i].id)){
+							data[ doc[i].id ]["late"] = doc[i].count;
+						}
+					}
+					res.send(data);
+				});
+
+			});
+
+		});
+	}
+	else res.send("unauthorized");
+});
+
+
+app.post("/getreport",function(req,res){
+	inoutregister.report(res);
+});
+
+
+// get  get
 
 
 app.get('/application',function(req,res) {
@@ -570,6 +661,8 @@ app.get("/contact",function(req,res){
 })
 var server = app.listen(8080,function(){
 	console.log('Port is listening');
+
+	initjob();
 });
 
 app.get("/guestlist",function(req,res){
@@ -590,12 +683,17 @@ app.get("/entrylist",function(req,res){
 });
 
 app.get("/blacklist",function(req,res){
-	res.sendFile(process.cwd() + '/Views/blacklist.html');
+	if(req.session.user==="dsw" || req.session.user === "manager")
+		res.sendFile(process.cwd() + '/Views/blacklist.html');
+	else res.send("meh :3")
 });
 
 app.get("/report",function(req,res){
-	res.sendFile(process.cwd() + '/Views/report.html');
+	if(req.session.user==="dsw" || req.session.user === "manager")
+		res.sendFile(process.cwd() + '/Views/report.html');
+	else res.send("MEH");
 });
+
 
 var io = socket(server);
 io.on('connection', function(socket){
@@ -605,3 +703,17 @@ io.on('connection', function(socket){
 		console.log("disconnect "+socket.id);
 	});
 });
+
+
+function initjob(){
+
+	var schedule = require('node-schedule');
+	 
+	var rule = new schedule.RecurrenceRule();
+	rule.minute = 5;
+ 	console.log("started job");
+	var j = schedule.scheduleJob(rule, function(){
+  		console.log('The answer to life, the universe, and everything!');
+	});
+
+}
