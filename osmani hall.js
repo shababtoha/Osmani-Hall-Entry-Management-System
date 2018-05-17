@@ -40,6 +40,11 @@ function checkValidPhone(x)
 //       console.log(req.body);
 // });
 
+app.post("/loggedin",function(req,res){
+	if(!req.session.user) res.send("err");
+	else res.send(req.session.user);
+});
+
 app.post('/students',function(req,res){
 	//console.log(req.body);
 	if(!req.files){
