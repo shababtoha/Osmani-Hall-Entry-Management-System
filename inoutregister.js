@@ -92,21 +92,42 @@ function rep(res){
 		var collection = db.collection('lastmonth');
 		collection.find( {}).toArray(function(err,documents){
 			var ids= [];
-			var obj = {};
+			var objara = [];
 			for(var i =  0 ; i<documents.length;i++){
-				obj[ documents[i].id ] = { 'id' : documents[i].id , 'expected' : documents[i].expected , 'date' : documents[i].date, 'time' : documents[i].time}
-				ids.push( documents[i].id );
+				objara.push( { 'id' : documents[i].id , 'expected' : documents[i].expected , 'date' : documents[i].date, 'time' : documents[i].time});
+				if(ids.indexOf(documents[i].id)==-1)
+					ids.push( documents[i].id );
 			}
+			console.log(ids);
 			var col = db.collection('students');
 			col.find( { 'stdid' : { $in : ids }  } ).toArray(function(err,docs){
+				var obj = {};
+
+				//console.log(docs);
+				console.log(docs[0].stdid);
+
 				for(var i  = 0; i< docs.length;i++){
+					if( !obj.hasOwnProperty(docs[i].stdid) ){
+						obj[ docs[i].stdid ] = {};
+					}
 					obj[ docs[i].stdid ]["name"] = docs[i].stdname;
 					obj[ docs[i].stdid ]["crse"]= docs[i].crse;
 					obj[ docs[i].stdid ]["level"] = docs[i].level;
 					obj[ docs[i].stdid ]["room"] = docs[i].room;
 					obj[ docs[i].stdid ]["hall"] = docs[i].hall;
 				}
-				res.send(obj);
+
+				for(var i = 0 ; i< objara.length;i++){
+					objara[i]["name"] = obj[ objara[i].id ].name;
+					objara[i]["crse"] = obj[ objara[i].id ].crse;
+					objara[i]["level"] = obj[ objara[i].id ].level;
+					objara[i]["room"] = obj[ objara[i].id ].room;
+					objara[i]["hall"] = obj[ objara[i].id ].hall;
+				}
+
+
+				res.send(objara);
+
 			});
 
 		});
