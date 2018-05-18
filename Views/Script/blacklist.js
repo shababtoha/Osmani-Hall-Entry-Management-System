@@ -3,11 +3,12 @@ $(document).ready(function(){
 		type : 'post',
 		url  : '/getblacklist',
 		success : function(data){
-			console.log(data);
+		//	console.log(data);
+			$('h3').remove();
 			for(var key in data){
 				if(data[key].hasOwnProperty("late")){
-					//console.log("OK");
-					$("#mydata").append(make_row(data[key]));
+					if(Number(data[key].late)>=5 )
+						$("#mydata").append(make_row(data[key]));
 				}
 			}
 

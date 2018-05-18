@@ -264,6 +264,17 @@ btn.onclick = function() {
           data  : { 'id' : id},
           success : function(data){
            // console.log(data);
+            if(data==="err"){
+                  $.toast({
+                    heading: 'Error',
+                    text: 'No Student Found',
+                    showHideTransition: 'fade',
+                    icon: 'error'
+                });
+                  modal.style.display = "none";
+                return;
+            }
+
             nowobj = data;
             $("#name").html(data.name);
             $("#in-out").html(data.status);

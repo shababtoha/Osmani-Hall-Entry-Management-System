@@ -104,7 +104,7 @@ function rep(res){
 				var obj = {};
 
 				//console.log(docs);
-				console.log(docs[0].stdid);
+				console.log(docs);
 
 				for(var i  = 0; i< docs.length;i++){
 					if( !obj.hasOwnProperty(docs[i].stdid) ){
@@ -116,6 +116,9 @@ function rep(res){
 					obj[ docs[i].stdid ]["room"] = docs[i].room;
 					obj[ docs[i].stdid ]["hall"] = docs[i].hall;
 				}
+
+				console.log(obj);
+				console.log(objara);
 
 				for(var i = 0 ; i< objara.length;i++){
 					objara[i]["name"] = obj[ objara[i].id ].name;

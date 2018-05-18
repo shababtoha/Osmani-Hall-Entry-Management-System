@@ -3,7 +3,7 @@ $(document).ready(function () {
 		type : 'post',
 		url : '/getreport',
 		success : function(data){
-			console.log(data);
+			$('h3').remove();
 			if(Object.keys(data).length==0){
 
 			}

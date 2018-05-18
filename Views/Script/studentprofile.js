@@ -81,10 +81,11 @@ function make_g(){
 
 function remove(){
   if(!_id) return;
+
   $.ajax({
       type : 'post',
       url  : '/deletestudent',
-      data : { 'id' : _id },
+      data : { 'id' : _id,'stdid' : obj.stdid },
       success : function(data){
         console.log(data);
         if(data == "ok"){

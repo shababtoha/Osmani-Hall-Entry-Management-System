@@ -3,11 +3,13 @@ $(document).ready(function(){
 		type : 'post',
 		url  : '/entry',
 		success : function(data){
-			console.log(data);
+			//console.log(data);
+			$('h3').remove();
 			if(Object.keys(data).length==0){
 
 			}
 			else{
+				
 				for(var key in data){
 					$("#mydata").append(make_row( data[key] ));
 				}

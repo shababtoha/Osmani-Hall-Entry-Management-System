@@ -27,6 +27,8 @@
   <script src="/Script/bootstrap.min.js"></script>
   <link href="/Styles/approvedGuest.css" rel="stylesheet"/>
   <script type="text/javascript" src="/Script/ApprovedGuest.js"></script>
+  <script type="text/javascript" src="/Script/home.js"></script>
+  <link rel="stylesheet" type="text/css" href="/Styles/loading.css">
 
 </head>
 
@@ -44,7 +46,7 @@
                  <li><a  href="/guestform" id="gstfrm" style="color: white">Guest Form</a></li>
 
          <li><a href="/contact" id="cntct" style="color: white">Contact</a></li>
-        <li><a class="right" href="/auth" id="login" style="color:white"><i class="glyphicon glyphicon-log-in " style="color:white"></i> LogIn </a></li>
+        <li><a class="right" href="/auth"  style="color:white"><i class="glyphicon glyphicon-log-in " style="color:white"></i> <span id="login">LogIn </a></li>
     </ul>
   
 
@@ -116,6 +118,7 @@
 	
 </div>
 
+<h3 data-text="Loading..."> Loading...</h3>
 
 <script type="text/javascript">
   $( document ).ready(function() {

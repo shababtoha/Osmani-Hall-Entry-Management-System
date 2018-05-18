@@ -47,7 +47,8 @@ app.post("/loggedin",function(req,res){
 
 app.post('/students',function(req,res){
 	//console.log(req.body);
-	if(!req.files){
+	//console.log(req.files);
+	if(!req.files.profile_photo){
 		res.redirect('/application?insert=false');
 		return;
 	}
@@ -340,7 +341,7 @@ app.post("/inoutstatus",function(req,res){
 		var collection = db.collection("inoutregister");
 		collection.find( { "stdid" : req.body.id}).toArray(function(err,documents){
 			if(documents.length != 1){
-				res.send("nai");
+				res.send("err");
 				return;
 			}
 			res.send(documents[0]);
@@ -464,6 +465,21 @@ app.post("/deletestudent",function(req,res){
 			res.send("ok");
 			return;
 		});
+		var id = req.body.stdid;
+		var inout = db.collection('inoutregister');
+		inout.remove( {'stdid' : id},function(){
+
+		});
+		var lm = db.collection('lastmonth');
+		lm.remove({'id' : id},function(){
+
+		});
+		var la = db.collection('lates');
+		la.remove( { 'id' : id},function(req,res){
+			
+		});
+
+
 	})
 
 });

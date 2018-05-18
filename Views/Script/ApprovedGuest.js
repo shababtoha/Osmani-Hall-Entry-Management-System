@@ -5,6 +5,7 @@ $(document).ready(function(){
 		url  : '/gueststatus',
 		success : function(data){
 			//console.log(data);
+			$('h3').remove();
 			for(var i = 0 ; i < data.length;i++){
 				$("#guests").append( make_list(data[i]));
 			}
