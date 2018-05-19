@@ -37,6 +37,12 @@ var id ;
 
 socket.on('next',function(guest){
 	//console.log(guest);
+	if(guest == "nai"){
+		$("#lala").remove();
+		$('h4').append('<br><br>No Pending Request');
+		return;
+	}
+
 	for(var key in obj){
 		if(guest!=="nai") $("#"+key).html( guest[key] );
 		else{
@@ -56,6 +62,8 @@ function approve(status){
 		url : '/chagegueststatus',
 		data : {"status" : status+"", "id" : id } ,
 		success : function(data){
+			
+
 			$(".container").show();
 			$("#loading").hide();
 		}
