@@ -24,7 +24,7 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/Styles/ansar.css">
      <script type="text/javascript" src="/Script/logout.js" ></script>
-
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
      <script src="/Script/toast.js"></script> 
   <link rel="stylesheet" href="/Styles/toast.css">
   <script type="text/javascript" src="/Script/loggedin.js"></script>
@@ -232,6 +232,17 @@ function confirm(){
         }
     });
 }
+
+var socket = io.connect('/');
+socket.on('late',function(data){
+    $.toast({
+      heading: 'Warning',
+      text: 'LATE!!',
+      showHideTransition: 'plain',
+      icon: 'warning'
+    });
+});
+
 
 // Get the modal
 var modal = document.getElementById('myModal');

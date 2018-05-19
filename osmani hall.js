@@ -372,14 +372,14 @@ app.post("/inoutsave",function(req,res){
 
 
 			if(req.body.status==='IN'){
-				inoutregister.IN(req.body.id, req.body.date,req.body.time,documents[0].return ,res);
+				inoutregister.IN(req.body.id, req.body.date,req.body.time,documents[0].return ,res,io);
 			}
 			else if(req.body.status==='EXIT'){
 				if(req.body.night==='false'){
-					inoutregister.OUT(req.body.id, req.body.date,req.body.time,res);
+					inoutregister.OUT(req.body.id, req.body.date,req.body.time,res,io);
 				}
 				else if(req.body.night==="true"){
-					inoutregister.NIGHTSTAY(req.body.id, req.body.date,req.body.time,req.body.return,res);
+					inoutregister.NIGHTSTAY(req.body.id, req.body.date,req.body.time,req.body.return,res,io);
 				}
 				else res.send("err");
 			}	

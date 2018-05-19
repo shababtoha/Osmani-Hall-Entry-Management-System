@@ -4,24 +4,37 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var ObjectId = require('mongodb').ObjectID;
 var mongo = require('mongodb').MongoClient;
+var socket = require('socket.io');
 const mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
 
 module.exports = {
-	IN : function (id,date,time,expected,res) {
-		checkforlate(date,expected,id,time);
+	IN : function (id,date,time,expected,res,io) {
+		checkforlate(date,expected,id,time,io);
 		mongo.connect(mongourl,function(err,db){
 				var collection  = db.collection("inoutregister");
 					collection.update( {stdid : id},{ $set : { "status" : "IN" , 'time' : time , 'date' : date, 'night' : 'false', 'return' : "" } } ,function(){
 					res.send("OK");
 				});
+
+				var history = db.collection('history');
+				history.update( { stdid : id }, { $push : { ara : { 'time' : time, 'date' : date, status : 'IN' } } }, {upsert : true},function(){
+
+				});
 		});
+
+
+
 	
 	},
-	OUT : function(id,date,time,res){
+	OUT : function(id,date,time,res,io){
 		mongo.connect(mongourl,function(err,db){
 				var collection  = db.collection("inoutregister");
 					collection.update( {stdid : id},{ $set : { "status" : "EXIT" , 'time' : time , 'date' : date, 'night' : 'false', 'return' : date } } ,function(){
 					res.send("OK");
+				});
+				var history = db.collection('history');
+				history.update( { stdid : id }, { $push : { ara : { 'time' : time, 'date' : date, status : 'EXIT' } } }, {upsert : true},function(){
+
 				});
 		});		
 	},
@@ -31,6 +44,10 @@ module.exports = {
 				var collection  = db.collection("inoutregister");
 					collection.update( {stdid : id},{ $set : { "status" : "EXIT" , 'time' : time , 'date' : date, 'night' : 'true', 'return' : returndate } } ,function(){
 					res.send("OK");
+				});
+				var history = db.collection('history');
+				history.update( { stdid : id }, { $push : { ara : { 'time' : time, 'date' : date, status : 'EXIT' } } }, {upsert : true},function(){
+
 				});
 		});	
 	},
@@ -43,7 +60,7 @@ module.exports = {
 }
 
 
-function checkforlate(date,expcteddate,id,time){
+function checkforlate(date,expcteddate,id,time,io){
 	//console.log(date+"   "+  expcteddate);
 	var dddddd = date;
 	var xxxxxx = expcteddate;
@@ -57,22 +74,25 @@ function checkforlate(date,expcteddate,id,time){
 	console.log(new Date().getHours() );
 	if(d1==d2 && m1==m2){
 		if( new Date().getHours() >=20){
-			late(id,dddddd,xxxxxx,time);
+			late(id,dddddd,xxxxxx,time,io);
 		}
 	}
 	
 	else if(m1 > m2){
-		late(id,dddddd,xxxxxx,time);
+		late(id,dddddd,xxxxxx,time,io);
 	}
 	else if(d1 > d2 && m1==m2){
-		late(id,dddddd,xxxxxx,time);
+		late(id,dddddd,xxxxxx,time,io);
 	}
 
 }
 
 
-function late(id,date,expcteddate,time){
-	console.log('late');
+function late(id,date,expcteddate,time,io){
+	//console.log('late');
+	
+	io.sockets.emit("late","you are dommed");
+
 	mongo.connect(mongourl,function(err,db){
 		var collection = db.collection('lates');
 		collection.update( { 'id' : id }, { $inc : { 'count' : 1 } },function(){
