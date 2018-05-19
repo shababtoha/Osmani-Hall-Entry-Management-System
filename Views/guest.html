@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<title>Approved Guest</title>
+
+	
+	<script  src="/Script/jquery.min.js"></script>
+  
+       
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+<!-- <link rel="stylesheet" href="toggled-search-bar.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/Script/bootstrap.min.js"></script>
+  <link href="/Styles/approvedGuest.css" rel="stylesheet"/>
+  <script type="text/javascript" src="/Script/guests.js"></script>
+  <script type="text/javascript" src="/Script/home.js"></script>
+  <link rel="stylesheet" type="text/css" href="/Styles/loading.css">
+
+</head>
+
+
+
+<body background="bbb.jpg" style="background-repeat: no-repeat;background-attachment: fixed">
+
+	
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/" id="entry" style="color: white">Entry List</a></li>
+                 <li><a  href="/guestform" id="gstfrm" style="color: white">Guest Form</a></li>
+
+         <li><a href="/contact" id="cntct" style="color: white">Contact</a></li>
+        <li><a class="right" href="/auth"  style="color:white"><i class="glyphicon glyphicon-log-in " style="color:white"></i> <span id="login">LogIn </a></li>
+    </ul>
+  
+
+
+    
+      <div id="navbar" class="navbar-collapse collapse">
+         <div class="hidden-xs navbar-form navbar-right">
+            <a href="#search" class="search-form-tigger btn btn-success"  data-toggle="search-form" style="background-color: white"><i class="fa fa-search" style="color:#00897b" aria-hidden="true"></i></a>
+         </div>
+     <div class="visible-xs navbar-form navbar-right" style="border-color:transparent;">
+            <input type="text" name="search" class=" placeholder="Search..." style="color: blue;">
+         </div>
+         <!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+  
+</nav>
+
+
+<div class="search-form-wrapper">
+   <form class="search-form" id="" action="">
+      <div class="input-group">
+         <input type="text" name="search" class="search form-control" placeholder="Search">
+         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+         </span>
+         <span class="input-group-addon search-close" id="basic-addon2"><i class="fa fa-window-close" aria-hidden="true"></i>
+         </span>
+      </div>
+   </form>
+</div>
+   
+
+
+<div id="tableContainer" style="margin-left: 7%; margin-right: 3%; margin-top: 75px; " >
+ 
+
+		<table class = "tableDesign">
+			
+			
+			<thead>
+			
+				<tr>
+				
+					<th id="nameleft">Name</th>
+					<th>Course</th>
+					<th>Student ID</th>
+				  <th>Level</th>
+			    <th>Entry Date</th>
+          <th>Eeturn Date</th>
+					<th>Status</th>					
+					
+				</tr>
+			</thead>
+			<tbody id="guests">
+				 <!-- <tr>
+					<td class="left">mila</td>
+					<td>cse</td>
+					<td>4</td>
+					<td>female</td>
+				  <td>Pending</td>
+
+				</tr> -->
+				
+				
+			</tbody>
+		</table>
+	
+</div>
+
+<h3 data-text="Loading..."> Loading...</h3>
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $('[data-toggle=search-form]').click(function() {
+      $('.search-form-wrapper').toggleClass('open');
+      $('.search-form-wrapper .search').focus();
+      $('html').toggleClass('search-form-open');
+    });
+    $('[data-toggle=search-form-close]').click(function() {
+      $('.search-form-wrapper').removeClass('open');
+      $('html').removeClass('search-form-open');
+    });
+  $('.search-form-wrapper .search').keypress(function( event ) {
+    if($(this).val() == "Search") $(this).val("");
+  });
+
+  $('.search-close').click(function(event) {
+    $('.search-form-wrapper').removeClass('open');
+    $('html').removeClass('search-form-open');
+  });
+});
+</script>
+
+</body>
+</html>

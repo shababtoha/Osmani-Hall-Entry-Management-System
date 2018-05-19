@@ -129,6 +129,10 @@ app.post('/students',function(req,res){
   				col.insert( {  "status": "EXIT","name": obj.stdname,"stdid": obj.stdid,"time": "","date": "01/01/2040","night": "","return" : "31/12/2040" },function(){
 
   				});
+  				var tt = db.collection('history');
+  				tt.insert( { 'stdid' : obj.stdid , 'ara' : []},function(){
+
+  				});
 
 
   			}
@@ -266,7 +270,7 @@ app.post("/guestform",function(req,res){
 app.post("/gueststatus",function(req,res){
 	mongo.connect(mongourl,function(err,db){
 		var collection = db.collection("guestform");
-		collection.find({},{ stdphn : false, grdnname : false, grdnmail : false,prsntaddr:false,reason : false,from:false,to : false,grdnphn : false}).toArray(function(err,documents){
+		collection.find({},{ stdphn : false, grdnname : false, grdnmail : false,prsntaddr:false,reason : false,grdnphn : false}).toArray(function(err,documents){
 			console.log(documents);
 			res.send(documents);
 		});
@@ -715,6 +719,12 @@ app.get("/report",function(req,res){
 	else res.send("MEH");
 });
 
+
+app.get('/guests',function(req,res){
+	if(req.session.user=="Ansar" || req.session.user==="manager" || require.session==="dsw"){
+		res.sendFile(process.cwd() + "/Views/guest.html");
+	}
+});
 
 var io = socket(server);
 io.on('connection', function(socket){
