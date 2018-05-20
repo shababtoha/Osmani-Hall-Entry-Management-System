@@ -204,10 +204,11 @@ function confirm(){
     var returndate = $("#ret").val().split("-").reverse().join('/');
    // console.log(returndate)
     //console.log(Date.parse(rr) , Date.now());
-    
-    if(Date.now() > Date.parse(rr)){
-      alert("Please Enter A Valid Date");
-      return;
+    if(isChecked===true){
+      if(Date.now() > Date.parse(rr)){
+        alert("Please Enter A Valid Date");
+        return;
+      }
     }
 
     if(isChecked===true && !returndate){
