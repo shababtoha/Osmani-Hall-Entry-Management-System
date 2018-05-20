@@ -552,6 +552,30 @@ app.post("/getreport",function(req,res){
 });
 
 
+app.post("/newpassword",function(req,res){
+	var hash = req.body.code;
+	var pass = req.body.pass;
+	console.log(hash+"   "+pass);
+	mongo.connect(mongourl,function(err,db){
+		var collection = db.collection('auth');
+		collection.find({ "hash" : hash  }).toArray(function(err,documents){
+			if(documents.length!=1){
+				res.send("err");
+				return;
+			}
+			else{
+				var newhash = loginauth.getHash(documents[0].email+pass );
+				var newpass = loginauth.getHash(pass);
+				console.log(newpass);
+				collection.update( { 'hash' :hash },{ $set : { 'hash' : newhash+"" , 'pass' : newpass+"" } },function(){
+					res.send('success');
+				});
+			}
+		});
+	})
+});
+
+
 // get  get
 
 
@@ -624,17 +648,19 @@ app.get("/resetcode",function(req,res){
 		res.send("Not a Valid Url");
 		return;
 	}
-
+	console.log(code[1]);
 
 	mongo.connect(mongourl,function(err,db){
 		var collection = db.collection('auth');
 		collection.find({ "hash" : code[1]+""}).toArray(function(err,documents){
+			//console.log(code[1]+"");
 			if(documents.length==1){
 				res.sendFile(process.cwd()+'/Views/resetcode.html');
-				
 			}
-			else res.send("not a valid url");
-
+			else{
+				console.log("SIZE" + documents.length);
+				res.send("not a valid url");
+			}
 		});
 	});
 });

@@ -15,6 +15,7 @@ module.exports = {
   checkLogin : function(id,pass,res,req,type){
   	console.log(id,pass);
   	var val = hash(pass);
+    console.log(val);
   	mongo.connect(mongourl,function(err,db){
   		if(err) console.log(err);
   		var collection = db.collection('auth');

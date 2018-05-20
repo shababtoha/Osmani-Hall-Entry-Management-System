@@ -2,9 +2,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="/Styles/bootstrap.min.css">
-  <script src="Script/login.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="Styles/resetcode.css">
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script type="text/javascript" src="/Script/resetcode.js"></script>
+  <script src="/Script/toast.js"></script> 
+  <link rel="stylesheet" href="/Styles/toast.css">
 </head>
 <body>
 
@@ -24,8 +27,8 @@
     </div>
 
   <div class="container">
-    <input type="text"   placeholder="New Password" name="newpw" id="newpw" required>
-    <input type="text"   placeholder="Confirm Password" name="confirmpw" id="confirmpw" required>
+    <input type="Password"   placeholder="New Password" name="newpw" id="newpw" required>
+    <input type="Password"   placeholder="Confirm Password" name="confirmpw" id="confirmpw" required>
 
 
     <button  id="reset" onclick="reset()">Confirm</button>  
