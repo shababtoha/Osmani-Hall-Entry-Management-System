@@ -762,6 +762,10 @@ io.on('connection', function(socket){
 });
 
 
+app.get("/studentsearch",function(req,res){
+	res.sendFile(process.cwd() + '/Views/studentSearch.html');
+});
+
 function initjob(){
 
 	var schedule = require('node-schedule');

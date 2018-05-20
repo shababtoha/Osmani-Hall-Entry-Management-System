@@ -1,43 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/Styles/bootstrap.min.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="Styles/resetcode.css">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script type="text/javascript" src="/Script/resetcode.js"></script>
   <script src="/Script/toast.js"></script> 
   <link rel="stylesheet" href="/Styles/toast.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-<body>
+<body background="bbb.jpg">
 
-<div class="topnav">
+<nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
+ <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+        <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/" id="entry" style="color: white">Entry List</a></li>
+         <li><a  href="/guestform" id="gstfrm" style="color: white">Guest Form</a></li>
+                  <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
+         <li><a href="/contact" id="cntct" style="color: white">Contact</a></li>
+        
+    </ul> 
 
-   <a class="active" href="/" id="home">Home</a>
-   
-</div>
+    
+     
+  </div>
+
+  
+</nav>
+
+<div class="w3-display-container">
+<div class="w3-display-topmiddle">
 
 
-<div class="container" style="width:400px">
+<div class="container" style="width:400px;">
   <div class="FORM" >
-    <h1 style="font-size: 100% ; font-weight: bold; margin-left: 35% ; margin-top: 5%">Reset Password</h1>
+        <h1 style="font-size: 100% ; font-weight: bold; margin-left: 35% ; margin-top: 5%">Reset Password</h1>
 
-    <div class="imgcontainer">
-       <img src="logo.png" alt="Avatar" class="avatar">
-    </div>
+  <div class="imgcontainer">
+    <img src="logo.png" alt="Avatar" class="avatar">
+  </div>
 
-  <div class="container">
+  <div class="input-group" style="margin-left: 5% ; margin-right: 5%">
     <input type="Password"   placeholder="New Password" name="newpw" id="newpw" required>
     <input type="Password"   placeholder="Confirm Password" name="confirmpw" id="confirmpw" required>
 
 
-    <button  id="reset" onclick="reset()">Confirm</button>  
+    <button style="color: white" id="reset" onclick="reset()"><font size="4">Confirm</font></button> 
   </div>
 
-            <h2 style="font-size: 100% ;  margin-left: 35% ; margin-bottom: 5%; margin-top: 1%">Back to <a href="/login">Login</a></h2>
-
+  <div class="input-group" style="background-color:#f1f1f1 ;width: 100%;margin-top: 10% ;">
+    <h2 style="font-size: 100% ;  margin-left: 35% ; margin-bottom: 5%; margin-top: 1%">Back to <a href="/login">Login</a></h2>
+  </div>
+  
+</div>
 </div>
 
 </div>
+</div>
+
+
 </body>
 </html>
