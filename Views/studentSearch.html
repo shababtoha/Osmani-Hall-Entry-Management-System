@@ -9,7 +9,7 @@
 <title>Search Result</title>
 
 
-    <script  src="/Script/jquery.min.js"></script>
+  <script  src="/Script/jquery.min.js"></script>
   
        
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -27,7 +27,9 @@
 
 	
 	<link href="/Styles/StudentSearch.css" rel="stylesheet"/>
-	   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script type="text/javascript" src="/Script/search.js"></script>
+
 
 </head>
 
@@ -84,8 +86,8 @@
 
 <div style="background-color:#00897b;color: white ;border-color: #00897b;margin-top: -1%;width: 300px;">
 	
-  <h1 style="text-align: center;color: white;"><font size="6">Sumaiya Afroz Mila</font> </h1>
-  <h1 style="text-align: center;color: white;"><font size="4">201514021</font></h1>
+  <h1 style="text-align: center;color: white;"><font size="6" id="name">Sumaiya Afroz Mila</font> </h1>
+  <h1 style="text-align: center;color: white;"><font size="4" id="id">201514021</font></h1>
 </div>
 </div>
 </div>
@@ -105,12 +107,16 @@
 				<tr>
 				
 					
-				    <th>Date</th>
-					<th>Entry Time</th>
-                    <th>Exit Time</th>					
+				  <th>Date</th>
+					<th>Status</th>
+          <th> Time</th>					
 					
 				</tr>
 			</thead>
+
+      <tbody id="ttt">
+        
+      </tbody>
 			
 		</table>
 	

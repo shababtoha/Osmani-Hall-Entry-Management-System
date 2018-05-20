@@ -575,6 +575,49 @@ app.post("/newpassword",function(req,res){
 	})
 });
 
+app.post('/search',function(req,res){
+	console.log(req.query.value);
+	if(!req.query.value){
+		res.send("err");
+		return;
+	}
+
+	mongo.connect(mongourl,function(err,db){
+		// var collection = db.collection("history");
+		// collection.find( { stdid : req.query.value} ).toArray(function(err,documents){
+		// 	if(documents.length==0){
+		// 		res.send("nai");
+		// 		return;
+		// 	}
+		// 	var ara = documents[0].ara;
+		// 	ara.reverse();
+		// 	res.send(ara);
+
+		// });
+		var col = db.collection('students');
+		col.find( { stdid : req.query.value } ).toArray(function(err,doc){
+			if(doc.length != 1){
+				res.send("nai");
+				return;
+			}
+			var collection = db.collection("history");
+				collection.find( { stdid : req.query.value} ).toArray(function(err,documents){
+					if(documents.length==0){
+						res.send("nai");
+						return;
+					}
+					var ara = documents[0].ara;
+					ara.reverse();
+					res.send( { name  : doc[0].stdname, id : documents[0].stdid, 'history' : ara } );
+				});
+
+
+		})
+
+	});	
+
+});
+
 
 // get  get
 
@@ -762,9 +805,10 @@ io.on('connection', function(socket){
 });
 
 
-app.get("/studentsearch",function(req,res){
+app.get("/search",function(req,res){
 	res.sendFile(process.cwd() + '/Views/studentSearch.html');
 });
+
 
 function initjob(){
 
