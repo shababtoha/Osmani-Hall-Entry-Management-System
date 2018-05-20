@@ -20,7 +20,8 @@ h3:before{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	color: green;
+	color: #00897b;
+	opacity: 3;
 	overflow: hidden;
 	animation: animate 7s linear infinite;
 	border-right: 4px solid #55DDB9;
