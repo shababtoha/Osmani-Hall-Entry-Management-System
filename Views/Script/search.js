@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	
+	$("#name").hide();
+	$("#id").hide();
+
+	$("#tableContainer").hide();
 	var url = window.location.href;
 	var value = url.split("value=")[1];
 	$.ajax({
@@ -18,6 +23,11 @@ $(document).ready(function(){
 					$("#ttt").append( '<tr> <td>'+data.history[i].date+'</td><td>'+data.history[i].status+'</td><td>'+data.history[i].time+'</td></tr>' );
 				}
 			}
+			$('#name').show();
+			$("#loading").remove();
+			$("#id").show();
+			$("#tableContainer").show();
+			
 		}
 	})
 

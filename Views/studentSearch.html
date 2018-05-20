@@ -25,9 +25,9 @@
   <script src="/Script/bootstrap.min.js"></script>
 
 
-	
-	<link href="/Styles/StudentSearch.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
+  <link href="/Styles/StudentSearch.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script type="text/javascript" src="/Script/search.js"></script>
 
 
@@ -37,9 +37,9 @@
 
 <body background="new6.jpg">
 
-	
-	
-	
+  
+  
+  
 <nav class="navbar navbar-inverse " style="background-color:#00897b;color: white ;border-color: #00897b" id="navbar">
  <div class="container-fluid">
     
@@ -85,7 +85,7 @@
 <div class="w3-display-topmiddle">
 
 <div style="background-color:#00897b;color: white ;border-color: #00897b;margin-top: -1%;width: 300px;">
-	
+  
   <h1 style="text-align: center;color: white;"><font size="6" id="name">Sumaiya Afroz Mila</font> </h1>
   <h1 style="text-align: center;color: white;"><font size="4" id="id">201514021</font></h1>
 </div>
@@ -99,27 +99,27 @@
 <div id="tableContainer" style="margin-left: 7%; margin-right: 3%; margin-top: 50%; padding-bottom: 100px" >
  
 
-		<table class = "tableDesign">
-			
-			
-			<thead>
-			
-				<tr>
-				
-					
-				  <th>Date</th>
-					<th>Status</th>
-          <th> Time</th>					
-					
-				</tr>
-			</thead>
+    <table class = "tableDesign">
+      
+      
+      <thead>
+      
+        <tr>
+        
+          
+          <th>Date</th>
+          <th>Status</th>
+          <th> Time</th>          
+          
+        </tr>
+      </thead>
 
       <tbody id="ttt">
         
       </tbody>
-			
-		</table>
-	
+      
+    </table>
+  
 </div>
 </div>
 </div>
@@ -137,7 +137,10 @@
       $('html').removeClass('search-form-open');
     });
   $('.search-form-wrapper .search').keypress(function( event ) {
-    if($(this).val() == "Search") $(this).val("");
+      if(event.keyCode==13){
+          
+          window.location.href = "/search?value="+ $(this).val();
+        }
   });
 
   $('.search-close').click(function(event) {
