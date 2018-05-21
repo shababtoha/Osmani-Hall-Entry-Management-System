@@ -4,7 +4,8 @@ $(document).ready(function(){
 		type : 'post',
 		url : '/getstudentinfo',
 		success : function(data){
-			console.log(data);
+			//console.log(data);
+			$('h3').remove();
 			if(data=="err"){
 				$.toast({
     				heading: 'Error',

@@ -26,14 +26,17 @@ var obj = { stdname: '',
 var _id = null;
 $(document).ready(function(){
 	//console.log( window.location.href);
-	 _id = window.location.href.split('id=')[1];
+	$("#maindiv").hide();
+
+   _id = window.location.href.split('id=')[1];
 	$.ajax({
 		type : 'post',
 		url  : '/getstudent',
 		data : { 'id' : _id },
 		success : function(data){
 			console.log(data);
-
+      $("#loading").remove();
+      $("#maindiv").show();
       if(data.hasOwnProperty('stdid')){
 				for(var key in obj){
           obj[key] = data[key];
