@@ -7,6 +7,8 @@ var session = require('express-session');
 var ObjectId = require('mongodb').ObjectID;
 var mongo = require('mongodb').MongoClient;
 const mongourl =  'mongodb://osmani:osmani@ds131826.mlab.com:31826/osmanihall';
+var ip = require('ip');
+
 
 app.use(cookieParser());
 app.use(session({secret: "Hey! Wanna Know my Secret Identity?",saveUninitialized : true,resave : false}));
@@ -16,6 +18,14 @@ module.exports = {
   	console.log(id,pass);
   	var val = hash(pass);
     console.log(val);
+
+    var ipaddr =ip.address();
+    console.log(ipaddr);
+    // if(type==="Ansar" &&ipaddr!=="172.17.0.90"){
+    //     res.send("invalid login");
+    //     return;
+    // }
+
   	mongo.connect(mongourl,function(err,db){
   		if(err) console.log(err);
   		var collection = db.collection('auth');

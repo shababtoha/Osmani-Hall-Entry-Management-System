@@ -20,6 +20,7 @@ var obj = { stdname: '',
   				gdphn: '',
   				gdaddr: '',
   				room : '',
+          type : '',
  }
 
 var _id = null;
@@ -31,7 +32,9 @@ $(document).ready(function(){
 		url  : '/getstudent',
 		data : { 'id' : _id },
 		success : function(data){
-			if(data.hasOwnProperty('stdid')){
+			console.log(data);
+
+      if(data.hasOwnProperty('stdid')){
 				for(var key in obj){
           obj[key] = data[key];
 					$("#"+key).html(data[key])
@@ -103,11 +106,16 @@ function remove(){
 function save(){
     if(!_id) return;
     for(var key in obj){
+      if(key==="type") continue;
       obj[key] = $("#new"+key).val();
     }
+
     obj['hall'] = $('select[name=hall]').val();
     obj['gender'] = $('select[name=gender]').val();
     obj['id'] = _id;
+    
+    console.log(obj);
+
     $("#accpt").html('<i class="fa fa-spinner fa-spin"></i>');
     $.ajax({
       type :'post',

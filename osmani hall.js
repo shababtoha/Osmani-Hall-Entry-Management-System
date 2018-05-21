@@ -15,6 +15,8 @@ var socket = require('socket.io');
 var MAILSENDER = require("./sendMail");
 var inoutregister = require('./inoutregister');
 
+var ip = require('ip');
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -404,7 +406,7 @@ app.post("/updateprofile",function(req,res){
 	
 
 
-	if(req.session.user!="manager"){
+	if(req.session.user=="Ansar"|| !req.session.user ){
 		res.send("yeah?");
 		return;
 	}
@@ -430,6 +432,7 @@ app.post("/updateprofile",function(req,res){
   				gdphn: '',
   				gdaddr: '',
   				room : '',
+  				type : ''
  	}
  	console.log(req.body);
  	for(var key in obj){
@@ -498,8 +501,10 @@ app.post("/entry",function(req,res){
 	 		var ids = [];
 	 		var obj= {};
 	 		for(var i = 0 ; i<documents.length;i++){
-	 			ids.push(documents[i].stdid);
-	 			obj[ documents[i].stdid] = { "stdid" : documents[i].stdid, "return" : documents[i].return , "time" : documents[i].time, "date" : documents[i].date, "name" : documents[i].name };
+	 			if(documents[i].return!=="31/12/2040"){
+	 				ids.push(documents[i].stdid);
+	 				obj[ documents[i].stdid] = { "stdid" : documents[i].stdid, "return" : documents[i].return , "time" : documents[i].time, "date" : documents[i].date, "name" : documents[i].name };
+	 			}
 	 		}
 	 		console.log(ids);
 	 		var col = db.collection('students');
