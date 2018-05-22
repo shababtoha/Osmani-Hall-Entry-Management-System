@@ -170,7 +170,7 @@ $(document).ready(function(){
   $("#iamin").hide();
 });
 
-
+var isClicked = false;
 var todaydate ;
 var now;
 var nowobj;
@@ -201,6 +201,7 @@ function call(){
 };
 
 function confirm(){
+    if(isClicked) return;
     var id  = $("#an-entry").val();
     var status;
     
@@ -225,11 +226,13 @@ function confirm(){
       alert("Please Enter A Valid Date");
       return;
     }
+    isClicked = true;
     $.ajax({
         type : 'post',
         url  : '/inoutsave',
         data : { "id" : id , "status" : status, 'night' : isChecked, 'return' : returndate, 'date' : todaydate , 'time' : now },
         success : function(data){
+            isClicked = false;
             if(data == "OK"){
                 $.toast({
                   heading: 'Success',

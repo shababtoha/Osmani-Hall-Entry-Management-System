@@ -264,6 +264,7 @@ app.post("/guestform",function(req,res){
 		var collection = db.collection("guestform");
 		collection.insert( obj, function(err,data){
 			res.redirect("/approvedguest");
+			io.sockets.emit("/newguest","guest");
 		});
 	});
 
