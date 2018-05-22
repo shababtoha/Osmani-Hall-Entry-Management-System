@@ -833,8 +833,11 @@ function initjob(){
   			collection.remove({},function(){
   				console.log("done");
   			});
-  		})
+  			var collection = db.connection('lates');
+  			connection.update( {}, { $set : { 'count' : 0} },function(){
 
+  			} );
+  		})
 
 	});
 

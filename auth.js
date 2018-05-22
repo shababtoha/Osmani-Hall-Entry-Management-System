@@ -21,10 +21,10 @@ module.exports = {
 
     var ipaddr =ip.address();
     console.log(ipaddr);
-    // if(type==="Ansar" &&ipaddr!=="172.17.0.90"){
-    //     res.send("invalid login");
-    //     return;
-    // }
+    if(type==="Ansar" &&ipaddr!=="192.168.43.65"){
+        res.send("invalid login");
+        return;
+    }
 
   	mongo.connect(mongourl,function(err,db){
   		if(err) console.log(err);
