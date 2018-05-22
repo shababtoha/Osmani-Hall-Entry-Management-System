@@ -51,12 +51,12 @@ app.post('/students',function(req,res){
 	//console.log(req.body);
 	//console.log(req.files);
 	if(!req.files.profile_photo){
-		res.redirect('/application?insert=false');
+		res.redirect('/application?insert=false+errcode=405');
 		return;
 	}
 	if(!req.body){
 		//console.log("hmm");
-		res.redirect('/application?insert=false');
+		res.redirect('/application?insert=false+errcode=406');
 		return;
 	}
 	//console.log(req.files); mimetype  : image/png
@@ -87,7 +87,7 @@ app.post('/students',function(req,res){
   	for(var key in obj){
   		if(!req.body.hasOwnProperty(key)){
   			console.log("key nai"+key);
-  			res.redirect('/application?insert=false');
+  			res.redirect('/application?insert=false+errcode=404');
   			return;
   		}
   		obj[key] = req.body[key];
@@ -105,7 +105,7 @@ app.post('/students',function(req,res){
 
   	if(! (checkValidPhone(req.body.stdphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.fatphn) || checkValidPhone(req.body.gdphn))){
   		console.log("phone");
-  		res.send("ERROR");
+  		res.redirect('/application?insert=false+errcode=408');
   		return;
   	}
 
@@ -139,7 +139,7 @@ app.post('/students',function(req,res){
 
   			}
   			else{
-  				res.redirect('/application?insert=false');
+  				res.redirect('/application?insert=false+errcode=407');
   			}
   		});
   	});
@@ -820,10 +820,21 @@ function initjob(){
 	var schedule = require('node-schedule');
 	 
 	var rule = new schedule.RecurrenceRule();
-	rule.minute = 5;
+ 	rule.dayOfMonth =1;
+ 	rule.hour = 0;
+ 	rule.minute = 1;
+
  	console.log("started job");
 	var j = schedule.scheduleJob(rule, function(){
-  		console.log('The answer to life, the universe, and everything!');
+  		console.log("Clear");
+  		mongo.connect(mongourl,function(err,db){
+  			var collection = db.collection('lastmonth');
+  			collection.remove({},function(){
+  				console.log("done");
+  			});
+  		})
+
+
 	});
 
 }
