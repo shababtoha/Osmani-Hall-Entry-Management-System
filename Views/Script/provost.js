@@ -5,7 +5,7 @@ $(document).ready(function(){
 })
 var socket = io.connect('/');
 
-socket.on('/newguest',function(data){
+socket.on('newguest',function(data){
 	$.toast({
 	    heading: 'Information',
 	    text: '<a href ="/guestlist"> New Guest Request </a>',
