@@ -32,6 +32,9 @@
 
 	 <script type="text/javascript" src="/Script/logout.js" ></script>
 	 <link rel="stylesheet" type="text/css" href="/Styles/loading.css">
+
+	 <script type="text/javascript" src="/Script/logout.js" ></script>
+  <script type="text/javascript" src="/Script/home.js"></script>
 </head>
 
 
@@ -45,9 +48,14 @@
  <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-        <li><a  href="/" id="home" style="color: white">Home</a></li>
-        <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
-          <li><a href="#" onclick="logout()" id="logout" class="float-right fa fa-power-off" style="color: white;"></a></li>
+       <li><a  href="/" id="home" style="color: white">Home</a></li>
+        <li><a  href="/entrylist" id="entry" style="color: white">Entry List</a></li>
+         <li><a  href="/guestform" id="gstfrm" style="color: white">Guest Form</a></li>
+                  <li><a  href="/approvedguest" id="apprvd" style="color: white">Approved Guests</a></li>
+         <li><a href="/contact" id="cntct" style="color: white">Contact</a></li>
+         
+           <li style="background-color: #00897b;" ><a href="/login" title="Login" style="background-color: #00897b;color:white; "><span id="login">Login</span> <i class="fa fa-lg fa-sign-in" style="background-color: #00897b;"></i></a></li>
+           <li><a href="#" onclick="logout()" id="logout" class="float-right fa fa-power-off" style="color: white;"></a></li>
          
     </ul>
   
